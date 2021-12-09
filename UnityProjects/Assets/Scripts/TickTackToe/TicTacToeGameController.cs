@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TicTacToeGameController : MonoBehaviour
 {
-    public static bool randomPlayerToBeginn;
-    public static bool player1ToBeginn;
-    public static bool againstComputer;
-    public static int AILevel;
-    public static float timer;
+    private bool canEnd = true;
+    private bool canReset = true;
+    public bool randomPlayerToBeginn;
+    public bool player1ToBeginn;
+    public bool againstComputer;
+    public int AILevel;
     public static TicTacToeGameController instance;
     void Awake()
     {
@@ -38,9 +39,9 @@ public class TicTacToeGameController : MonoBehaviour
         TicTacToeButtonManager.instance.ComputerMove();
     }
 
-    public void ResetButton()
+    public void ResetGame()
     {
-        if (!TicTacToeStats.gameRunning)
+        if (!TicTacToeStats.gameRunning && canReset)
         {
             ResetButtonsUsed();
             TicTacToeGameController.instance.StartGame();
@@ -49,9 +50,13 @@ public class TicTacToeGameController : MonoBehaviour
 
     public void EndGame()
     {
-        timer = Time.time;
-        Debug.Log("--- Result ---\n" + "Player 1 : " + TicTacToeStats.player1Score + "\nPlayer 2 :" + TicTacToeStats.player2Score);
-        //SceneLoader.instance.NextScene();
+        if (canEnd)
+        {
+            canEnd = false;
+            canReset = false;
+            Debug.Log("--- Result ---\n" + "Player 1 : " + TicTacToeStats.player1Score + "\nPlayer 2 :" + TicTacToeStats.player2Score);
+            //SceneLoader.instance.NextScene();
+        }
     }
 
     private void ResetButtonsUsed()
@@ -59,7 +64,6 @@ public class TicTacToeGameController : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             TicTacToeStats.buttonUsed[i] = 0;
-
             TicTacToeButtonManager.instance.Move(i);
         }
     }
