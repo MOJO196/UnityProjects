@@ -6,6 +6,7 @@ public class MenuButtons : MonoBehaviour
 {
     public int backLocation;
     public int gameLocation;
+    private int playerToState;
 
     public void BackButton()
     {
@@ -27,6 +28,26 @@ public class MenuButtons : MonoBehaviour
     {
         //Saves the given settings for the game in TicTacToeStats
         //First deaktivate current buttons and aktivate new ones
+    }
+
+    public void TicTacToePlayerToBeginn()
+    {
+        playerToState++;
+
+        switch(playerToState)
+        {
+            case 0:
+            break;
+            case 1:
+            break;
+            case 2:
+                //s
+            break;
+            case 3:
+                playerToState = -1;
+                TicTacToePlayerToBeginn();
+            break;
+        }
     }
 
     private void Error()
