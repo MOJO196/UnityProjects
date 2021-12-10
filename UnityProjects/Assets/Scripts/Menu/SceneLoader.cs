@@ -19,6 +19,11 @@ public class SceneLoader : MonoBehaviour
 
         SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
+
+    public int GetTotalNumberOfScenes()
+    {
+        return SceneManager.sceneCountInBuildSettings;
+    }
     
     public void NextScene()
     {

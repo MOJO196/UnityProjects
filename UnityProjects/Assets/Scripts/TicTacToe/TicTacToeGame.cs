@@ -73,8 +73,8 @@ public class TicTacToeGame : MonoBehaviour
             case 2:
                 TicTacToeStats.player2Won = true;
                 TicTacToeStats.player2Score++;
-                if (TicTacToeStats.computer)
-                    Debug.Log("Computer won!");
+                if (!(TicTacToeStats.AILevel == 0))
+                    Debug.Log("AI won!");
                 else
                     Debug.Log("Player " + player + " won!");
                 break;

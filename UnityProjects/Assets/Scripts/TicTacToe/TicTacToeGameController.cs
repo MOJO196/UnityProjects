@@ -8,7 +8,6 @@ public class TicTacToeGameController : MonoBehaviour
     private bool canReset = true;
     public bool randomPlayerToBeginn;
     public bool player1ToBeginn;
-    public bool againstComputer;
     public int AILevel;
     public static TicTacToeGameController instance;
     void Awake()
@@ -33,10 +32,9 @@ public class TicTacToeGameController : MonoBehaviour
 
         TicTacToeStats.moves = 0;
         TicTacToeStats.gameRunning = true;
-        TicTacToeStats.computer = againstComputer;
         TicTacToeStats.AILevel = AILevel;
         TicTacToePlayerToMove.instance.PlayerToMove();
-        TicTacToeButtonManager.instance.ComputerMove();
+        TicTacToeButtonManager.instance.AIMove();
     }
 
     public void ResetGame()
@@ -54,7 +52,7 @@ public class TicTacToeGameController : MonoBehaviour
         {
             canEnd = false;
             canReset = false;
-            Debug.Log("--- Result ---\n" + "Player 1 : " + TicTacToeStats.player1Score + "\nPlayer 2 :" + TicTacToeStats.player2Score);
+            Debug.Log("Score " + TicTacToeStats.player1Score + ":" + TicTacToeStats.player2Score);
             SceneLoader.instance.NextScene();
         }
     }

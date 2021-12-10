@@ -18,7 +18,7 @@ public class TicTacToePlayerToMove : MonoBehaviour
 
     private void Start()
     {
-        if (TicTacToeStats.computer)
+        if (!(TicTacToeStats.AILevel == 0))
             this.gameObject.SetActive(false);
     }
 

@@ -28,8 +28,8 @@ public class TicTacToeButtonClick : MonoBehaviour
 
             TicTacToeStats.player1ToMove = !TicTacToeStats.player1ToMove;
 
-            if (TicTacToeStats.computer && !TicTacToeStats.player1ToMove)
-                TicTacToeButtonManager.instance.ComputerMove();
+            if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove)
+                TicTacToeButtonManager.instance.AIMove();
             else
                 TicTacToePlayerToMove.instance.PlayerToMove();
         }

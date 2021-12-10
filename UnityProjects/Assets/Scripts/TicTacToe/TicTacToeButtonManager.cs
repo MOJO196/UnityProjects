@@ -20,16 +20,18 @@ public class TicTacToeButtonManager : MonoBehaviour
 
     private void Start()
     {
-        if (TicTacToeStats.computer && !TicTacToeStats.player1ToMove)
-            ComputerMove();
+        if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove)
+            AIMove();
     }
 
-    public void ComputerMove()
+    public void AIMove()
     {
         if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove)
         {
             switch (TicTacToeStats.AILevel)
             {
+                case 0:
+                    break;
                 case 1:
                     RandomMove();
                     break;
@@ -55,7 +57,6 @@ public class TicTacToeButtonManager : MonoBehaviour
                 TicTacToeStats.buttonUsed[i] = 0;
                 if (result != 0)
                 {
-                    Debug.Log("WinningMove");
                     Move(i);
                     break;
                 }
@@ -72,16 +73,12 @@ public class TicTacToeButtonManager : MonoBehaviour
 
                         if (result != 0)
                         {
-                            Debug.Log("WinBlockingMove");
                             Move(j);
                             break;
                         }
                     }
                     if (result == 0 && j == 8)
-                    {
-                        Debug.Log("RandomMove");
                         RandomMove();
-                    }
                 }
             }
         }
@@ -97,11 +94,11 @@ public class TicTacToeButtonManager : MonoBehaviour
     {
         for (; ; )
         {
-            int computerMove = Random.Range(0, 9);
+            int move = Random.Range(0, 9);
 
-            if (TicTacToeStats.buttonUsed[computerMove] == 0)
+            if (TicTacToeStats.buttonUsed[move] == 0)
             {
-                Move(computerMove);
+                Move(move);
                 break;
             }
         }
