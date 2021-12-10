@@ -23,6 +23,12 @@ public class MenuButtons : MonoBehaviour
             Error();
     }
 
+    public void TicTacToePlayerSelect()
+    {
+        //Saves the given settings for the game in TicTacToeStats
+        //First deaktivate current buttons and aktivate new ones
+    }
+
     private void Error()
     {
         Debug.Log("You dont want to go to this scene, Error in MenuButtons");

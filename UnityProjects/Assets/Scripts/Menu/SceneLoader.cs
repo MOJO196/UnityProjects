@@ -9,13 +9,9 @@ public class SceneLoader : MonoBehaviour
     void Awake()
     {
         if (instance != null)
-        {
             Destroy(gameObject);
-        }
         else
-        {
             instance = this;
-        }
 
         SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
@@ -37,7 +33,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator SetActiveScene(int sceneID)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1); //Wait for seconds for a better transition (animation soon)
         SceneManager.LoadScene(sceneID);
     }
 }
