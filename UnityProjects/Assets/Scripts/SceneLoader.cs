@@ -16,16 +16,22 @@ public class SceneLoader : MonoBehaviour
         {
             instance = this;
         }
+
+        SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
     
     public void NextScene()
     {
-        StartCoroutine(SetActiveScene(SceneManager.GetActiveScene().buildIndex + 1));
+        StartCoroutine(SetActiveScene(SceneData.currentScene+1));
+    }
+
+    public void SetScene(int sceneID)
+    {
+        StartCoroutine(SetActiveScene(sceneID));
     }
 
     IEnumerator SetActiveScene(int sceneID)
     {
-        SceneData.currentScene = sceneID;
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneID);
     }

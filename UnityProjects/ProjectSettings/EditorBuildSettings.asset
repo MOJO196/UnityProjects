@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameSelect.unity
+    guid: b3f615be004f71e43b5c80b105d4e90d
+  - enabled: 1
+    path: Assets/Scenes/TicTacToe/TicTacToeMenu.unity
+    guid: 70f35f78f34e3174e95c0965591b3290
+  - enabled: 1
+    path: Assets/Scenes/TicTacToe/TicTacToe.unity
+    guid: 7c543eb361c7b0045824d27c040790e6
+  - enabled: 1
+    path: Assets/Scenes/TicTacToe/TicTacToeEndScreen.unity
+    guid: d7df52257c4103f449e1eb5c409060ef
   m_configObjects: {}

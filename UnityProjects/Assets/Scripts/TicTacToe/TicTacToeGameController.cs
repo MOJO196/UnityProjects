@@ -55,7 +55,7 @@ public class TicTacToeGameController : MonoBehaviour
             canEnd = false;
             canReset = false;
             Debug.Log("--- Result ---\n" + "Player 1 : " + TicTacToeStats.player1Score + "\nPlayer 2 :" + TicTacToeStats.player2Score);
-            //SceneLoader.instance.NextScene();
+            SceneLoader.instance.NextScene();
         }
     }
 
