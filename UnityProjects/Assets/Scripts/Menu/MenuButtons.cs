@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
     public int backLocation;
     public int gameLocation;
-    private int playerToState;
+    private int playerToBegin;
+    private int AILevel;
+    private int maxPoints;
 
+    //General
     public void BackButton()
     {
         if (backLocation < SceneLoader.instance.GetTotalNumberOfScenes()) //wrong scenes could go here
@@ -24,32 +28,86 @@ public class MenuButtons : MonoBehaviour
             Error();
     }
 
-    public void TicTacToePlayerSelect()
+    //TicTacToe
+    public void TicTacToePlayerToBegin()
     {
-        //Saves the given settings for the game in TicTacToeStats
-        //First deaktivate current buttons and aktivate new ones
-    }
+        playerToBegin++;
 
-    public void TicTacToePlayerToBeginn()
-    {
-        playerToState++;
-
-        switch(playerToState)
+        switch (playerToBegin)
         {
             case 0:
-            break;
+                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "A random player will beginn";
+                if (Random.value >= 0.5)
+                    TicTacToeStats.player1ToMove = true;
+                else
+                    TicTacToeStats.player1ToMove = false;
+                break;
             case 1:
-            break;
+                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "Player 1 will beginn";
+                TicTacToeStats.player1ToMove = true;
+                break;
             case 2:
-                //s
-            break;
+                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "Player 2 will beginn";
+                TicTacToeStats.player1ToMove = false;
+                break;
             case 3:
-                playerToState = -1;
-                TicTacToePlayerToBeginn();
-            break;
+                playerToBegin = -1;
+                TicTacToePlayerToBegin();
+                break;
         }
     }
 
+    public void TicTacToeAILevel()
+    {
+        AILevel++;
+
+        switch (AILevel)
+        {
+            case 0:
+                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "No AI";
+                TicTacToeStats.AILevel = AILevel;
+                break;
+            case 1:
+                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - easy";
+                TicTacToeStats.AILevel = AILevel;
+                break;
+            case 2:
+                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - medium";
+                TicTacToeStats.AILevel = AILevel;
+                break;
+            case 3:
+                AILevel = -1;
+                TicTacToeAILevel();
+                break;
+        }
+    }
+
+    public void TicTacToeMaxPoints()
+    {
+        maxPoints++;
+
+        switch (AILevel)
+        {
+            case 0:
+                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You will need to win 5 times";
+                TicTacToeStats.pointsNeedToWin = 5;
+                break;
+            case 1:
+                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You will need to win 3 times";
+                TicTacToeStats.pointsNeedToWin = 3;
+                break;
+            case 2:
+                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You dont have a win limit";
+                TicTacToeStats.pointsNeedToWin = 999; //Nobody will reach this number of rounds
+                break;
+            case 3:
+                maxPoints = -1;
+                TicTacToeMaxPoints();
+                break;
+        }
+    }
+
+    //Error
     private void Error()
     {
         Debug.Log("You dont want to go to this scene, Error in MenuButtons");

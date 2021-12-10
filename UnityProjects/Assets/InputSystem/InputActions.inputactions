@@ -98,7 +98,7 @@
             "id": "16004502-c97f-41ed-a8e4-4c1d892e0f47",
             "actions": [
                 {
-                    "name": "Reset",
+                    "name": "Restart",
                     "type": "Button",
                     "id": "720e9c3e-b432-4aff-8f17-4c88e2aa9870",
                     "expectedControlType": "Button",
@@ -122,7 +122,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Reset",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

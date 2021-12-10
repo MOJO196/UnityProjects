@@ -5,9 +5,9 @@ using UnityEngine;
 public class TicTacToeGameController : MonoBehaviour
 {
     private bool canEnd = true;
-    private bool canReset = true;
-    public bool randomPlayerToBeginn;
-    public bool player1ToBeginn;
+    private bool canRestart = true;
+    public bool randomPlayerToBegin;
+    public bool player1ToBegin;
     public int AILevel;
     public static TicTacToeGameController instance;
     void Awake()
@@ -21,12 +21,12 @@ public class TicTacToeGameController : MonoBehaviour
         StartGame();
     }
 
-    public void StartGame()
+    public void StartGame() //Change soon if Menu Buttons improve
     {
-        if (Random.value >= 0.5 && randomPlayerToBeginn)
+        if (Random.value >= 0.5 && randomPlayerToBegin)
             TicTacToeStats.player1ToMove = true;
-        else if (!randomPlayerToBeginn)
-            TicTacToeStats.player1ToMove = player1ToBeginn;
+        else if (!randomPlayerToBegin)
+            TicTacToeStats.player1ToMove = player1ToBegin;
         else
             TicTacToeStats.player1ToMove = false;
 
@@ -37,11 +37,11 @@ public class TicTacToeGameController : MonoBehaviour
         TicTacToeButtonManager.instance.AIMove();
     }
 
-    public void ResetGame()
+    public void RestartGame()
     {
-        if (!TicTacToeStats.gameRunning && canReset)
+        if (!TicTacToeStats.gameRunning && canRestart)
         {
-            ResetButtonsUsed();
+            RestartButtonsUsed();
             TicTacToeGameController.instance.StartGame();
         }
     }
@@ -51,13 +51,13 @@ public class TicTacToeGameController : MonoBehaviour
         if (canEnd)
         {
             canEnd = false;
-            canReset = false;
+            canRestart = false;
             Debug.Log("Score " + TicTacToeStats.player1Score + ":" + TicTacToeStats.player2Score);
             SceneLoader.instance.NextScene();
         }
     }
 
-    private void ResetButtonsUsed()
+    private void RestartButtonsUsed()
     {
         for (int i = 0; i < 9; i++)
         {
