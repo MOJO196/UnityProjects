@@ -13,6 +13,7 @@ public class SceneLoader : MonoBehaviour
         else
             instance = this;
 
+        DontDestroyOnLoad(this.gameObject);
         SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 

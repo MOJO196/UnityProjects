@@ -15,8 +15,6 @@ public class PongScoreManager : MonoBehaviour
         {
             instance = this;
         }
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private int scorePlayer1;
