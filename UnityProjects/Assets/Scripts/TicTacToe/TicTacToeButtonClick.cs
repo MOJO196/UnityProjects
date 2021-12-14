@@ -9,8 +9,9 @@ public class TicTacToeButtonClick : MonoBehaviour
     public Image buttonImage;
     public void ButtonClick()
     {
-        if (TicTacToeStats.buttonUsed[buttonPosition - 1] == 0 && TicTacToeStats.gameRunning)
+        if (TicTacToeStats.buttonUsed[buttonPosition - 1] == 0 && TicTacToeStats.gameRunning && !TicTacToeStats.duringMove)
         {
+            TicTacToeStats.duringMove = true;
             TicTacToeStats.moves++;
 
             if (TicTacToeStats.player1ToMove)
@@ -27,15 +28,14 @@ public class TicTacToeButtonClick : MonoBehaviour
             }
 
             TicTacToeStats.player1ToMove = !TicTacToeStats.player1ToMove;
+            TicTacToeStats.duringMove = false;
 
             if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove)
                 TicTacToeButtonManager.instance.AIMove();
             else
                 TicTacToePlayerToMove.instance.PlayerToMove();
         }
-        else if (TicTacToeStats.buttonUsed[buttonPosition - 1] == 0 && !TicTacToeStats.gameRunning)
-        {
+        else if (TicTacToeStats.duringRestart && !TicTacToeStats.gameRunning)
             buttonImage.color = Color.white;
-        }
     }
 }

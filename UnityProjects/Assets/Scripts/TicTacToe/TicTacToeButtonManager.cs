@@ -14,8 +14,6 @@ public class TicTacToeButtonManager : MonoBehaviour
             Destroy(gameObject);
         else
             instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
@@ -26,7 +24,7 @@ public class TicTacToeButtonManager : MonoBehaviour
 
     public void AIMove()
     {
-        if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove)
+        if (TicTacToeStats.gameRunning)
         {
             switch (TicTacToeStats.AILevel)
             {

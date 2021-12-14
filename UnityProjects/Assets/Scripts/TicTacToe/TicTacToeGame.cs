@@ -11,8 +11,6 @@ public class TicTacToeGame : MonoBehaviour
             Destroy(gameObject);
         else
             instance = this;
-
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public int CheckGameState(int player, bool getWinner)
@@ -56,7 +54,7 @@ public class TicTacToeGame : MonoBehaviour
     {
         Debug.Log("Draw");
         TicTacToeStats.gameRunning = false;
-        TicTacToeGameController.instance.RestartGame();
+        //Draw overlay
     }
 
     public void PlayerWon(int player)
@@ -65,16 +63,17 @@ public class TicTacToeGame : MonoBehaviour
         {
             case 1:
                 TicTacToeStats.player1Score++;
-                Debug.Log("Player " + player + " won!");
+                Debug.Log("Player " + player + " won!");    //Player1 won overlay
                 break;
             case 2:
                 TicTacToeStats.player2Score++;
                 if (!(TicTacToeStats.AILevel == 0))
-                    Debug.Log("AI won!");
+                    Debug.Log("AI won!");   //AI won Overlay
                 else
-                    Debug.Log("Player " + player + " won!");
+                    Debug.Log("Player " + player + " won!");    //Player2 won overlay
                 break;
         }
+
         TicTacToeStats.gameRunning = false;
         Result();
     }
@@ -84,8 +83,6 @@ public class TicTacToeGame : MonoBehaviour
         if (TicTacToeStats.player1Score == 5 || TicTacToeStats.player2Score == 5)
             TicTacToeGameController.instance.EndGame();
         else if (TicTacToeStats.player1Score == 4 || TicTacToeStats.player2Score == 5)
-            TicTacToeStats.matchpoint = true; //Some matchpoint overlay
-
-        TicTacToeGameController.instance.RestartGame();
+            TicTacToeStats.matchpoint = true; //Matchpoint overlay
     }
 }

@@ -6,9 +6,8 @@ public class TicTacToeGameController : MonoBehaviour
 {
     private bool canEnd = true;
     private bool canRestart = true;
-    public bool randomPlayerToBegin;
-    public bool player1ToBegin;
-    public int AILevel;
+    [SerializeField]
+    private int AILevel;
     public static TicTacToeGameController instance;
     void Awake()
     {
@@ -17,32 +16,42 @@ public class TicTacToeGameController : MonoBehaviour
         else
             instance = this;
 
-        DontDestroyOnLoad(this.gameObject);
-        StartGame();
+        if (Random.value >= 0.5)
+            TicTacToeStats.player1BeganToStart = true;
+        else
+            TicTacToeStats.player1BeganToStart = false;
+
+        TicTacToeStats.player1ToMove = !TicTacToeStats.player1BeganToStart;
+        TicTacToeStats.gameRunning = true;
+        TicTacToeStats.AILevel = AILevel;
+    }
+
+    void Start()
+    {
+        StartGame();        
     }
 
     public void StartGame() //Change soon if Menu Buttons improve
     {
-        if (Random.value >= 0.5 && randomPlayerToBegin)
-            TicTacToeStats.player1ToMove = true;
-        else if (!randomPlayerToBegin)
-            TicTacToeStats.player1ToMove = player1ToBegin;
-        else
-            TicTacToeStats.player1ToMove = false;
-
+        TicTacToeStats.player1BeganToStart = !TicTacToeStats.player1BeganToStart;
+        TicTacToeStats.player1ToMove = TicTacToeStats.player1BeganToStart;
+                
         TicTacToeStats.moves = 0;
-        TicTacToeStats.gameRunning = true;
-        TicTacToeStats.AILevel = AILevel;
         TicTacToePlayerToMove.instance.PlayerToMove();
-        TicTacToeButtonManager.instance.AIMove();
+        if (!TicTacToeStats.player1ToMove)
+            TicTacToeButtonManager.instance.AIMove();
     }
 
     public void RestartGame()
     {
         if (!TicTacToeStats.gameRunning && canRestart)
         {
-            RestartButtonsUsed();
-            TicTacToeGameController.instance.StartGame();
+            TicTacToeStats.duringRestart = true;
+            ResetButtonUsed();
+            TicTacToeStats.gameRunning = true;
+            TicTacToeStats.AILevel = AILevel;
+            StartGame();
+            TicTacToeStats.duringRestart = false;
         }
     }
 
@@ -57,7 +66,7 @@ public class TicTacToeGameController : MonoBehaviour
         }
     }
 
-    private void RestartButtonsUsed()
+    private void ResetButtonUsed()
     {
         for (int i = 0; i < 9; i++)
         {
