@@ -29,34 +29,6 @@ public class MenuButtons : MonoBehaviour
     }
 
     //TicTacToe
-    public void TicTacToePlayerToBegin()
-    {
-        playerToBegin++;
-
-        switch (playerToBegin)
-        {
-            case 0:
-                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "A random player will beginn";
-                if (Random.value >= 0.5)
-                    TicTacToeStats.player1ToMove = true;
-                else
-                    TicTacToeStats.player1ToMove = false;
-                break;
-            case 1:
-                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "Player 1 will beginn";
-                TicTacToeStats.player1ToMove = true;
-                break;
-            case 2:
-                GameObject.Find("PlayerToBeginn").GetComponentInChildren<Text>().text = "Player 2 will beginn";
-                TicTacToeStats.player1ToMove = false;
-                break;
-            case 3:
-                playerToBegin = -1;
-                TicTacToePlayerToBegin();
-                break;
-        }
-    }
-
     public void TicTacToeAILevel()
     {
         AILevel++;
@@ -76,6 +48,9 @@ public class MenuButtons : MonoBehaviour
                 TicTacToeStats.AILevel = AILevel;
                 break;
             case 3:
+                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
+                break;
+            default:
                 AILevel = -1;
                 TicTacToeAILevel();
                 break;

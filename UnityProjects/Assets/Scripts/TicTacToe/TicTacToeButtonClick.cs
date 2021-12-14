@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class TicTacToeButtonClick : MonoBehaviour
 {
-    public int buttonPosition;
-    public Image buttonImage;
+    [SerializeField]
+    private int buttonPosition;
+    [SerializeField]
+    private Image buttonImage;
     public void ButtonClick()
     {
         if (TicTacToeStats.buttonUsed[buttonPosition - 1] == 0 && TicTacToeStats.gameRunning && !TicTacToeStats.duringMove)

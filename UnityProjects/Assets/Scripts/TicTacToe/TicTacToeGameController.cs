@@ -6,8 +6,6 @@ public class TicTacToeGameController : MonoBehaviour
 {
     private bool canEnd = true;
     private bool canRestart = true;
-    [SerializeField]
-    private int AILevel;
     public static TicTacToeGameController instance;
     void Awake()
     {
@@ -23,7 +21,6 @@ public class TicTacToeGameController : MonoBehaviour
 
         TicTacToeStats.player1ToMove = !TicTacToeStats.player1BeganToStart;
         TicTacToeStats.gameRunning = true;
-        TicTacToeStats.AILevel = AILevel;
     }
 
     void Start()
@@ -49,7 +46,6 @@ public class TicTacToeGameController : MonoBehaviour
             TicTacToeStats.duringRestart = true;
             ResetButtonUsed();
             TicTacToeStats.gameRunning = true;
-            TicTacToeStats.AILevel = AILevel;
             StartGame();
             TicTacToeStats.duringRestart = false;
         }
