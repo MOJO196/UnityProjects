@@ -57,7 +57,7 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void TicTacToeMaxPoints()
+    public void TicTacToeMaxPoints()    //Soon to be implemented
     {
         maxPoints++;
 

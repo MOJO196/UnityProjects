@@ -13,6 +13,11 @@ public class TicTacToeGame : MonoBehaviour
             instance = this;
     }
 
+    void Start()
+    {
+        //TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[1], TicTacToeButtonManager.instance.buttons[2]);    //csharp(CS0120)
+    }
+
     public int CheckGameState(int player, bool getWinner)
     {
         int winningRow;

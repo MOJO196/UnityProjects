@@ -5,10 +5,8 @@ using UnityEngine.UI;
 
 public class TicTacToeButtonManager : MonoBehaviour
 {
-    [SerializeField]
-    private Button[] buttons = new Button[9];
-
-    public static TicTacToeButtonManager instance;
+    public Button[] buttons = new Button[9];
+    public TicTacToeButtonManager instance;
     private void Awake()
     {
         if (instance != null)

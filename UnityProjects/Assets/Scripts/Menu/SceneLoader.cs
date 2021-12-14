@@ -14,7 +14,6 @@ public class SceneLoader : MonoBehaviour
             instance = this;
 
         DontDestroyOnLoad(this.gameObject);
-        SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     public int GetTotalNumberOfScenes()
@@ -24,6 +23,7 @@ public class SceneLoader : MonoBehaviour
     
     public void NextScene()
     {
+        SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;        
         StartCoroutine(SetActiveScene(SceneData.currentScene+1));
     }
 
@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator SetActiveScene(int sceneID)
     {
-        yield return new WaitForSeconds(1); //Wait for seconds for a better transition (animation soon)
+        yield return new WaitForSeconds(1); //Transition
         SceneManager.LoadScene(sceneID);
     }
 }
