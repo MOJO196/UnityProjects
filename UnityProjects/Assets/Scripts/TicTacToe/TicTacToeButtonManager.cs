@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TicTacToeButtonManager : MonoBehaviour
 {
     public Button[] buttons = new Button[9];
-    public TicTacToeButtonManager instance;
+    public static TicTacToeButtonManager instance;
     private void Awake()
     {
         if (instance != null)

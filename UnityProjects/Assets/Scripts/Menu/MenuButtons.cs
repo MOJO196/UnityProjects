@@ -10,6 +10,10 @@ public class MenuButtons : MonoBehaviour
     private int playerToBegin;
     private int AILevel;
     private int maxPoints;
+    void Start() 
+    {
+        TicTacToeStats.pointsNeedToWin = 3;    
+    }
 
     //General
     public void BackButton()
@@ -57,23 +61,23 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void TicTacToeMaxPoints()    //Soon to be implemented
+    public void TicTacToeMaxPoints()
     {
         maxPoints++;
 
-        switch (AILevel)
+        switch (maxPoints)
         {
             case 0:
-                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You will need to win 5 times";
-                TicTacToeStats.pointsNeedToWin = 5;
-                break;
-            case 1:
-                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You will need to win 3 times";
+                GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "3 times";
                 TicTacToeStats.pointsNeedToWin = 3;
                 break;
+            case 1:
+                GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "5 times";
+                TicTacToeStats.pointsNeedToWin = 5;
+                break;
             case 2:
-                GameObject.Find("MaxPoints").GetComponentInChildren<Text>().text = "You dont have a win limit";
-                TicTacToeStats.pointsNeedToWin = 999; //Nobody will reach this number of rounds
+                GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "no limit";
+                TicTacToeStats.pointsNeedToWin = 999; //Nobody will reach this amount of rounds
                 break;
             case 3:
                 maxPoints = -1;
