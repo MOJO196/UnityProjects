@@ -15,30 +15,30 @@ public class TicTacToeGame : MonoBehaviour
 
     public int CheckGameState(int player, bool getWinner)
     {
-        int winningRow;
+        int winningMove;
         //Rows   
         if (TicTacToeStats.buttonUsed[0] == player && TicTacToeStats.buttonUsed[1] == player && TicTacToeStats.buttonUsed[2] == player)
-            winningRow = 1;
+            winningMove = 1;
         else if (TicTacToeStats.buttonUsed[3] == player && TicTacToeStats.buttonUsed[4] == player && TicTacToeStats.buttonUsed[5] == player)
-            winningRow = 2;
+            winningMove = 2;
         else if (TicTacToeStats.buttonUsed[6] == player && TicTacToeStats.buttonUsed[7] == player && TicTacToeStats.buttonUsed[8] == player)
-            winningRow = 3;
+            winningMove = 3;
         //Columns
         else if (TicTacToeStats.buttonUsed[0] == player && TicTacToeStats.buttonUsed[3] == player && TicTacToeStats.buttonUsed[6] == player)
-            winningRow = 4;
+            winningMove = 4;
         else if (TicTacToeStats.buttonUsed[1] == player && TicTacToeStats.buttonUsed[4] == player && TicTacToeStats.buttonUsed[7] == player)
-            winningRow = 5;
+            winningMove = 5;
         else if (TicTacToeStats.buttonUsed[2] == player && TicTacToeStats.buttonUsed[5] == player && TicTacToeStats.buttonUsed[8] == player)
-            winningRow = 6;
+            winningMove = 6;
         //Diagonals
         else if (TicTacToeStats.buttonUsed[0] == player && TicTacToeStats.buttonUsed[4] == player && TicTacToeStats.buttonUsed[8] == player)
-            winningRow = 7;
+            winningMove = 7;
         else if (TicTacToeStats.buttonUsed[2] == player && TicTacToeStats.buttonUsed[4] == player && TicTacToeStats.buttonUsed[6] == player)
-            winningRow = 8;
+            winningMove = 8;
         else
-            winningRow = 0;
+            winningMove = 0;
 
-        if (winningRow == 0)
+        if (winningMove == 0)
         {
             //Nobody wins
             if (TicTacToeStats.moves == 9 && getWinner)
@@ -47,7 +47,7 @@ public class TicTacToeGame : MonoBehaviour
         else
             if (getWinner)
             {
-                switch (winningRow)
+                switch (winningMove)
                 {
                     case 1:
                         TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[2]);
@@ -76,7 +76,7 @@ public class TicTacToeGame : MonoBehaviour
                 }
                 PlayerWon(player);
             }
-        return winningRow;
+        return winningMove;
     }
 
     public void Draw()
