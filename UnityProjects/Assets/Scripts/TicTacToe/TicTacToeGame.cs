@@ -47,33 +47,36 @@ public class TicTacToeGame : MonoBehaviour
         else
             if (getWinner)
             {
+                
                 switch (winningMove)
                 {
                     case 1:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[2]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[2]);
+                        TicTacToeDrawLine2.instance.DrawLine(TicTacToeButtonManager.instance.buttons[3], TicTacToeButtonManager.instance.buttons[2]);
                         break;
                     case 2:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[3], TicTacToeButtonManager.instance.buttons[5]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[3], TicTacToeButtonManager.instance.buttons[5]);
                         break;
                     case 3:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[6], TicTacToeButtonManager.instance.buttons[8]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[6], TicTacToeButtonManager.instance.buttons[8]);
                         break;
                     case 4:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[6]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[6]);
                         break;
                     case 5:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[1], TicTacToeButtonManager.instance.buttons[7]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[1], TicTacToeButtonManager.instance.buttons[7]);
                         break;
                     case 6:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[2], TicTacToeButtonManager.instance.buttons[8]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[2], TicTacToeButtonManager.instance.buttons[8]);
                         break;
                     case 7:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[8]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[0], TicTacToeButtonManager.instance.buttons[8]);
                         break;
                     case 8:
-                        TicTacToeDrawLine.instance.DrawLine(TicTacToeButtonManager.instance.buttons[2], TicTacToeButtonManager.instance.buttons[6]);
+                        TicTacToeDrawLine1.instance.DrawLine(TicTacToeButtonManager.instance.buttons[2], TicTacToeButtonManager.instance.buttons[6]);
                         break;
-                }
+                } 
+                
                 PlayerWon(player);
             }
         return winningMove;
