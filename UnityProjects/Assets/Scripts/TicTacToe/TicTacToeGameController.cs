@@ -45,7 +45,7 @@ public class TicTacToeGameController : MonoBehaviour
         {
             TicTacToeStats.duringRestart = true;
             ResetButtonUsed();
-            //TicTacToeDrawLine.instance.ResetLine();
+            TicTacToeLineManager.instance.ResetLine();
             TicTacToeStats.gameRunning = true;
             StartGame();
             TicTacToeStats.duringRestart = false;
