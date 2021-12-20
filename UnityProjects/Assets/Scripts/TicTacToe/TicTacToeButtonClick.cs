@@ -35,7 +35,7 @@ public class TicTacToeButtonClick : MonoBehaviour
             if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove)
                 TicTacToeButtonManager.instance.AIMove();
             else
-                TicTacToePlayerToMove.instance.PlayerToMove();
+               TicTacToePlayerToMove.instance.PlayerToMove();
         }
         else if (TicTacToeStats.duringRestart && !TicTacToeStats.gameRunning)
             buttonImage.color = Color.white;

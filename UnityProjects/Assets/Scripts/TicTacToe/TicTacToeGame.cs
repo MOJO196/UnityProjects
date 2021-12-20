@@ -6,6 +6,7 @@ public class TicTacToeGame : MonoBehaviour
 {
     public int[][] possibleWins;
     public static TicTacToeGame instance;
+
     void Awake()
     {
         if (instance != null)
@@ -14,12 +15,15 @@ public class TicTacToeGame : MonoBehaviour
             instance = this;
 
         possibleWins = new int[][]{
+            //Rows
             new int[]{0,1,2},
             new int[]{3,4,5},
             new int[]{6,7,8},
+            //Columns
             new int[]{0,3,6},
             new int[]{1,4,7},
             new int[]{2,5,8},
+            //Diagonals
             new int[]{0,4,8},
             new int[]{2,4,6}
         };
@@ -56,7 +60,6 @@ public class TicTacToeGame : MonoBehaviour
         {
             if (getWinner)
             {
-                Debug.Log(winningMoves[0] + ", " + winningMoves[1]);
                 for (int i = 0; i < winningMoves.Length; i++)
                 {
                     switch (winningMoves[i])
