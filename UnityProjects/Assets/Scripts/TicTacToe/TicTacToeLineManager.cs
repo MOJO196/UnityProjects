@@ -17,10 +17,8 @@ public class TicTacToeLineManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
-            Destroy(gameObject);
-        else
-            instance = this;
+        if (instance != null) Destroy(gameObject);
+        else instance = this;
 
         line1.startWidth = width;
         line1.endWidth = width;
@@ -33,10 +31,8 @@ public class TicTacToeLineManager : MonoBehaviour
 
     public void DrawLine(int lineIndex, Button obj1, Button obj2)
     {
-        if (lineIndex == 1)
-            DrawLine1(obj1, obj2);
-        else
-            DrawLine2(obj1, obj2);
+        if (lineIndex == 1) DrawLine1(obj1, obj2);
+        else DrawLine2(obj1, obj2);
     }
 
     public void DrawLine1(Button obj1, Button obj2)

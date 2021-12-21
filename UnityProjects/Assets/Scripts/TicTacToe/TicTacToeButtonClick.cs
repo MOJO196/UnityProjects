@@ -32,12 +32,9 @@ public class TicTacToeButtonClick : MonoBehaviour
             TicTacToeStats.player1ToMove = !TicTacToeStats.player1ToMove;
             TicTacToeStats.duringMove = false;
 
-            if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove)
-                TicTacToeButtonManager.instance.AIMove();
-            else
-               TicTacToePlayerToMove.instance.PlayerToMove();
+            if (!(TicTacToeStats.AILevel == 0) && !TicTacToeStats.player1ToMove) TicTacToeButtonManager.instance.AIMove();
+            else TicTacToePlayerToMove.instance.PlayerToMove();
         }
-        else if (TicTacToeStats.duringRestart && !TicTacToeStats.gameRunning)
-            buttonImage.color = Color.white;
+        else if (TicTacToeStats.duringRestart && !TicTacToeStats.gameRunning) buttonImage.color = Color.white;
     }
 }

@@ -9,15 +9,11 @@ public class TicTacToeGameController : MonoBehaviour
     public static TicTacToeGameController instance;
     void Awake()
     {
-        if (instance != null)
-            Destroy(gameObject);
-        else
-            instance = this;
+        if (instance != null) Destroy(gameObject);
+        else instance = this;
 
-        if (Random.value >= 0.5)
-            TicTacToeStats.player1BeganToStart = true;
-        else
-            TicTacToeStats.player1BeganToStart = false;
+        if (Random.value >= 0.5) TicTacToeStats.player1BeganToStart = true;
+        else TicTacToeStats.player1BeganToStart = false;
 
         TicTacToeStats.player1ToMove = !TicTacToeStats.player1BeganToStart;
         TicTacToeStats.gameRunning = true;
@@ -25,26 +21,32 @@ public class TicTacToeGameController : MonoBehaviour
 
     void Start()
     {
-        StartGame();        
+        StartGame();
     }
 
     public void StartGame() //Change soon if Menu Buttons improve
     {
         TicTacToeStats.player1BeganToStart = !TicTacToeStats.player1BeganToStart;
         TicTacToeStats.player1ToMove = TicTacToeStats.player1BeganToStart;
-                
+
         TicTacToeStats.moves = 0;
         TicTacToePlayerToMove.instance.PlayerToMove();
-        if (!TicTacToeStats.player1ToMove)
-            TicTacToeButtonManager.instance.AIMove();
+
+        if (!TicTacToeStats.player1ToMove) TicTacToeButtonManager.instance.AIMove();
     }
 
     public void RestartGame()
     {
         if (!TicTacToeStats.gameRunning && canRestart)
         {
+            if (TicTacToeStats.player1Score == TicTacToeStats.pointsNeedToWin || TicTacToeStats.player2Score == TicTacToeStats.pointsNeedToWin)
+            {
+                TicTacToeGameController.instance.EndGame();
+                return;
+            }
+
             TicTacToeStats.duringRestart = true;
-            ResetButtonUsed();
+            TicTacToeButtonManager.instance.ResetButtons();
             TicTacToeLineManager.instance.ResetLine();
             TicTacToeStats.gameRunning = true;
             StartGame();
@@ -60,15 +62,6 @@ public class TicTacToeGameController : MonoBehaviour
             canRestart = false;
             Debug.Log("Score " + TicTacToeStats.player1Score + ":" + TicTacToeStats.player2Score);
             SceneLoader.instance.NextScene();
-        }
-    }
-
-    private void ResetButtonUsed()
-    {
-        for (int i = 0; i < 9; i++)
-        {
-            TicTacToeStats.buttonUsed[i] = 0;
-            TicTacToeButtonManager.instance.Move(i);
         }
     }
 }

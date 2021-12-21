@@ -13,17 +13,13 @@ public class PongPlayerControll : MonoBehaviour
 
     public void Up(InputAction.CallbackContext context)
     {
-        if (context.started)
-            rb.velocity = new Vector2(rb.velocity.x, speed);
-        else if (context.canceled)
-            rb.velocity = new Vector2(0,0);
+        if (context.started) rb.velocity = new Vector2(rb.velocity.x, speed);
+        else if (context.canceled) rb.velocity = new Vector2(0,0);
     }
 
     public void Down(InputAction.CallbackContext context)
     {
-        if (context.started)
-            rb.velocity = new Vector2(rb.velocity.x, -speed);
-        else if (context.canceled)
-            rb.velocity = new Vector2(0,0);
+        if (context.started) rb.velocity = new Vector2(rb.velocity.x, -speed);
+        else if (context.canceled) rb.velocity = new Vector2(0,0);
     }
 }

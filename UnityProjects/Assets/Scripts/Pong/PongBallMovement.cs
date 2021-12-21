@@ -52,9 +52,7 @@ public class PongBallMovement : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         
-        if (pointingTowardsPlayer == 1)
-            rb.velocity = new Vector2(-speed, 0);
-        else if (pointingTowardsPlayer == 2)
-            rb.velocity = new Vector2(speed, 0);
+        if (pointingTowardsPlayer == 1) rb.velocity = new Vector2(-speed, 0);
+        else if (pointingTowardsPlayer == 2) rb.velocity = new Vector2(speed, 0);
     }
 }

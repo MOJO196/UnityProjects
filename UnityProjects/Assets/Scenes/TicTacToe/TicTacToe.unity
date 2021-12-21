@@ -2056,6 +2056,10 @@ MonoBehaviour:
   - {fileID: 1497970515}
   - {fileID: 11934865}
   - {fileID: 1451127430}
+  AIs:
+  - {fileID: 11400000, guid: 13fe7a1d55500d1438d5da7cf1dd5180, type: 2}
+  - {fileID: 11400000, guid: 27bd02e421624c84e8561b806dcb7428, type: 2}
+  - {fileID: 11400000, guid: 2a5422867836ee646a9b2be81fcedbdd, type: 2}
 --- !u!114 &2020118930
 MonoBehaviour:
   m_ObjectHideFlags: 0

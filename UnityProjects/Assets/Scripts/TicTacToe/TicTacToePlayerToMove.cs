@@ -10,23 +10,18 @@ public class TicTacToePlayerToMove : MonoBehaviour
     public Image image;
     void Awake()
     {
-        if (instance != null)
-            Destroy(gameObject);
-        else
-            instance = this;
+        if (instance != null) Destroy(gameObject);
+        else instance = this;
     }
 
     private void Start()
     {
-        if (!(TicTacToeStats.AILevel == 0))
-            this.gameObject.SetActive(false);
+        if (!(TicTacToeStats.AILevel == 0)) this.gameObject.SetActive(false);
     }
 
     public void PlayerToMove()
     {
-        if (TicTacToeStats.player1ToMove)
-            image.color = Color.blue;
-        else
-            image.color = Color.red;
+        if (TicTacToeStats.player1ToMove) image.color = Color.blue;
+        else image.color = Color.red;
     }
 }

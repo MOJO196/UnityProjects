@@ -22,10 +22,8 @@ public class PongScoreManager : MonoBehaviour
 
     public bool Score(int player)
     {
-        if (player == 1)
-            scorePlayer1 += 1;
-        else if (player == 2)
-            scorePlayer2 += 1;
+        if (player == 1) scorePlayer1 += 1;
+        else if (player == 2) scorePlayer2 += 1;
 
         return CheckIfPlayerWon();
     }
