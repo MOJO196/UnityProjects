@@ -10,26 +10,32 @@ public class MenuButtons : MonoBehaviour
     private int playerToBegin;
     private int AILevel;
     private int maxPoints;
-    void Start() 
+    [SerializeField]
+    private int gameMode = -1;
+
+    void Start() //Default Settings
     {
-        TicTacToeStats.pointsNeedToWin = 3;    
+        switch (gameMode)
+        {
+            case 5:
+                return;
+            default:
+                Error(1);
+                return;
+        }
     }
 
     //General
     public void BackButton()
     {
-        if (backLocation < SceneLoader.instance.GetTotalNumberOfScenes()) //wrong scenes could go here
-            SceneLoader.instance.SetScene(backLocation);
-        else
-            Error();
+        if (backLocation < SceneLoader.instance.GetTotalNumberOfScenes()) SceneLoader.instance.SetScene(backLocation);  //wrong scenes could go here
+        else Error(2);
     }
 
     public void StartButton()
     {
-        if (gameLocation < SceneLoader.instance.GetTotalNumberOfScenes()) //wrong scenes could go here
-            SceneLoader.instance.SetScene(gameLocation);
-        else
-            Error();
+        if (gameLocation < SceneLoader.instance.GetTotalNumberOfScenes()) SceneLoader.instance.SetScene(gameLocation);  //wrong scenes could go here
+        else Error(2);
     }
 
     //TicTacToe
@@ -42,22 +48,22 @@ public class MenuButtons : MonoBehaviour
             case 0:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "No AI";
                 TicTacToeStats.AILevel = AILevel;
-                break;
+                return;
             case 1:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - easy";
                 TicTacToeStats.AILevel = AILevel;
-                break;
+                return;
             case 2:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - medium";
                 TicTacToeStats.AILevel = AILevel;
-                break;
+                return;
             case 3:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
-                break;
+                return;
             default:
                 AILevel = -1;
                 TicTacToeAILevel();
-                break;
+                return;
         }
     }
 
@@ -70,25 +76,40 @@ public class MenuButtons : MonoBehaviour
             case 0:
                 GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "3 times";
                 TicTacToeStats.pointsNeedToWin = 3;
-                break;
+                return;
             case 1:
                 GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "5 times";
                 TicTacToeStats.pointsNeedToWin = 5;
-                break;
+                return;
             case 2:
                 GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "no limit";
                 TicTacToeStats.pointsNeedToWin = 999; //Nobody will reach this amount of rounds
-                break;
+                return;
             case 3:
                 maxPoints = -1;
                 TicTacToeMaxPoints();
-                break;
+                return;
         }
     }
 
     //Error
-    private void Error()
+    private void Error(int code)
     {
-        Debug.Log("You dont want to go to this scene, Error in MenuButtons");
+        switch (code)
+        {
+            case 0:
+                Debug.Log("No game selected");
+                return;
+            case 1:
+                Debug.Log("You dont want to go to this scene");
+                return;
+            case 2:
+                return;
+            case 3:
+                return;
+            default:
+                Debug.Log("Worng code");
+                return;
+        }
     }
 }

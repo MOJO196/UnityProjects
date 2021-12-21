@@ -54,7 +54,7 @@ public class TicTacToeGame : MonoBehaviour
             if (getWinner)
             {
                 int length = 0;
-                if (winningMoves[1] == -1) length = -1;
+                if (winningMoves[1] == -1) length = 1;
                 
                 for (int i = 0; i < winningMoves.Length-length; i++)
                 {
