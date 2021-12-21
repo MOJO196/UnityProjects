@@ -17,6 +17,18 @@ public class MenuButtons : MonoBehaviour
     {
         switch (gameMode)
         {
+            case 0: //TicTacToe
+                TicTacToeStats.pointsNeedToWin = 3;
+                TicTacToeStats.AILevel = 0;
+                return;
+            case 1:
+                return;
+            case 2:
+                return;
+            case 3:
+                return;
+            case 4:
+                return;
             case 5:
                 return;
             default:
