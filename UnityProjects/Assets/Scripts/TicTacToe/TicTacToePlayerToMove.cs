@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class TicTacToePlayerToMove : MonoBehaviour
 {
+    [SerializeField]
+    private Image image;
     public static TicTacToePlayerToMove instance;
-    public Image image;
     void Awake()
     {
         if (instance != null) Destroy(gameObject);

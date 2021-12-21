@@ -24,7 +24,7 @@ public class TicTacToeButtonManager : MonoBehaviour
         if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove)
         {
             if (TicTacToeStats.AILevel == 0) return;
-            int nextAIMove = AIs[TicTacToeStats.AILevel - 1].nextMove();
+            int nextAIMove = AIs[TicTacToeStats.AILevel - 1].NextMove();
 
             if (nextAIMove != -1 || nextAIMove > 8)
             {

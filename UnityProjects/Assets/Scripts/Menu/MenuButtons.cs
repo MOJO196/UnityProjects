@@ -5,23 +5,32 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    public int backLocation;
-    public int gameLocation;
-    private int playerToBegin;
     private int AILevel;
     private int maxPoints;
     [SerializeField]
-    private int gameMode = -1;
+    private int gameID = -1;
+    [SerializeField]
+    public int gameLocation;
+    [SerializeField]
+    public int backLocation;
 
     void Start() //Default Settings
     {
-        switch (gameMode)
+        switch (gameID)
         {
-            case 0: //TicTacToe
-                TicTacToeStats.pointsNeedToWin = 3;
-                TicTacToeStats.AILevel = 0;
+            case 0: //No Game Selected
                 return;
-            case 1:
+            case 1: //TicTacToe
+                TicTacToeStats.pointsNeedToWin = 3;
+                TicTacToeStats.AILevel = 0;                
+                TicTacToeStats.duringRestart = false;
+                TicTacToeStats.duringMove = false;
+                TicTacToeStats.matchpoint = false;
+                TicTacToeStats.player1Score = 0;
+                TicTacToeStats.player2Score = 0;
+                TicTacToeStats.moves = 0;
+
+                for (int i = 0; i < 9; i++) TicTacToeStats.buttonUsed[i] = 0;
                 return;
             case 2:
                 return;
@@ -31,8 +40,10 @@ public class MenuButtons : MonoBehaviour
                 return;
             case 5:
                 return;
+            case 6:
+                return;
             default:
-                Error(1);
+                Error(0);
                 return;
         }
     }

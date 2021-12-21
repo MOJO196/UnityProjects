@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AILevel1", menuName = "TicTacToeAIs/AILevel1")]
 public class TicTacToeAILevel1 : TicTacToeAI
 {
-    public override int nextMove()
+    public override int NextMove()
     {
         for (; ; )
         {

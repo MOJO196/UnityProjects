@@ -1002,6 +1002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backLocation: 0
   gameLocation: 2
+  gameMode: 0
 --- !u!1 &1895668587
 GameObject:
   m_ObjectHideFlags: 0

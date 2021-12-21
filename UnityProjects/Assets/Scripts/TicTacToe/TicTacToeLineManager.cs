@@ -9,10 +9,12 @@ public class TicTacToeLineManager : MonoBehaviour
     private LineRenderer line1;
     [SerializeField]
     private LineRenderer line2;
+    [SerializeField]
+    private Color color = Color.black;
+    [SerializeField]
+    private float width = .25f;
     private float alpha = 1f;
-    public float width = .25f;
     private int positionCount = 2;
-    public Color color = Color.black;
     public static TicTacToeLineManager instance;
 
     void Awake()
@@ -35,7 +37,7 @@ public class TicTacToeLineManager : MonoBehaviour
         else DrawLine2(obj1, obj2);
     }
 
-    public void DrawLine1(Button obj1, Button obj2)
+    private void DrawLine1(Button obj1, Button obj2)
     {
         if (obj1 != null && obj2 != null)
         {
@@ -51,7 +53,7 @@ public class TicTacToeLineManager : MonoBehaviour
         }
     }
 
-    public void DrawLine2(Button obj1, Button obj2)
+    private void DrawLine2(Button obj1, Button obj2)
     {
         if (obj1 != null && obj2 != null)
         {

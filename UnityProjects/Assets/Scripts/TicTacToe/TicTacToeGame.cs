@@ -92,14 +92,14 @@ public class TicTacToeGame : MonoBehaviour
         }
     }
 
-    public void Draw()
+    private void Draw()
     {
         Debug.Log("Draw");
         TicTacToeStats.gameRunning = false;
         //Draw overlay
     }
 
-    public void PlayerWon(int player)
+    private void PlayerWon(int player)
     {
         TicTacToeStats.gameRunning = false;
 

@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AILevel2", menuName = "TicTacToeAIs/AILevel2")]
 public class TicTacToeAILevel2 : TicTacToeAI
 {
-    public override int nextMove()
+    public override int NextMove()
     {
         int result = -1;
 
@@ -43,6 +43,6 @@ public class TicTacToeAILevel2 : TicTacToeAI
                 }
             }
         }
-        return base.nextMove();
+        return base.NextMove();
     }
 }
