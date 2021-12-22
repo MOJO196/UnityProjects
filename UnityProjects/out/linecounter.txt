@@ -413,3 +413,150 @@ UnityEditor.TestRunner.csproj, code is 786, comment is 0, blank is 0.
 UnityEngine.TestRunner.csproj, code is 720, comment is 0, blank is 0.
 UnityProjects.sln, code is 17, comment is 0, blank is 0.
 ===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2021-12-22 10:10:55
+count workspace : c:\Users\User\Documents\GitHub\UnityProjects\UnityProjects
+total files : 50
+total code lines : 20091
+total comment lines : 29
+total blank lines : 103
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |        .csproj|          18655|              0|              0|     93|
+   |          .json|            444|              0|              0|    2.2|
+   |           .sln|             17|              0|              0|  0.085|
+   |            .cs|            768|             29|             97|    3.8|
+   |           .log|             52|              0|              6|   0.26|
+   |.physicsMaterial2D|             11|              0|              0|  0.055|
+   |  .inputactions|            144|              0|              0|   0.72|
+   -------------------------------------------------------------------------
+Assembly-CSharp.csproj, code is 679, comment is 0, blank is 0.
+Assets\InputSystem\InputActions.inputactions, code is 144, comment is 0, blank is 0.
+Assets\Physics\PongBouncy.physicsMaterial2D, code is 11, comment is 0, blank is 0.
+Assets\Scripts\Menu\MenuButtons.cs, code is 127, comment is 9, blank is 10.
+Assets\Scripts\Menu\SceneData.cs, code is 4, comment is 0, blank is 0.
+Assets\Scripts\Menu\SceneLoader.cs, code is 34, comment is 1, blank is 6.
+Assets\Scripts\Pong\PongBallMovement.cs, code is 50, comment is 2, blank is 6.
+Assets\Scripts\Pong\PongPlayerControll.cs, code is 23, comment is 0, blank is 2.
+Assets\Scripts\Pong\PongScoreManager.cs, code is 43, comment is 3, blank is 6.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAI.cs, code is 11, comment is 0, blank is 1.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel1.cs, code is 15, comment is 0, blank is 2.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel2.cs, code is 35, comment is 0, blank is 4.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel3.cs, code is 56, comment is 2, blank is 7.
+Assets\Scripts\TicTacToe\TicTacToeButtonClick.cs, code is 36, comment is 0, blank is 4.
+Assets\Scripts\TicTacToe\TicTacToeButtonManager.cs, code is 61, comment is 0, blank is 8.
+Assets\Scripts\TicTacToe\TicTacToeGame.cs, code is 104, comment is 8, blank is 13.
+Assets\Scripts\TicTacToe\TicTacToeGameController.cs, code is 58, comment is 1, blank is 10.
+Assets\Scripts\TicTacToe\TicTacToeLineManager.cs, code is 69, comment is 0, blank is 13.
+Assets\Scripts\TicTacToe\TicTacToePlayerToMove.cs, code is 25, comment is 0, blank is 3.
+Assets\Scripts\TicTacToe\TicTacToeStats.cs, code is 17, comment is 3, blank is 2.
+Logs\Packages-Update.log, code is 52, comment is 0, blank is 6.
+Packages\manifest.json, code is 49, comment is 0, blank is 0.
+Packages\packages-lock.json, code is 395, comment is 0, blank is 0.
+PsdPlugin.csproj, code is 682, comment is 0, blank is 0.
+Unity.2D.Animation.Editor.csproj, code is 853, comment is 0, blank is 0.
+Unity.2D.Animation.Runtime.csproj, code is 646, comment is 0, blank is 0.
+Unity.2D.Animation.Triangle.Runtime.csproj, code is 701, comment is 0, blank is 0.
+Unity.2D.Common.Editor.csproj, code is 649, comment is 0, blank is 0.
+Unity.2D.Common.Runtime.csproj, code is 617, comment is 0, blank is 0.
+Unity.2D.Path.Editor.csproj, code is 685, comment is 0, blank is 0.
+Unity.2D.PixelPerfect.csproj, code is 620, comment is 0, blank is 0.
+Unity.2D.PixelPerfect.Editor.csproj, code is 642, comment is 0, blank is 0.
+Unity.2D.Psdimporter.Editor.csproj, code is 673, comment is 0, blank is 0.
+Unity.2D.SpriteShape.Editor.csproj, code is 673, comment is 0, blank is 0.
+Unity.2D.SpriteShape.Runtime.csproj, code is 641, comment is 0, blank is 0.
+Unity.CollabProxy.Editor.csproj, code is 656, comment is 0, blank is 0.
+Unity.InputSystem.csproj, code is 908, comment is 0, blank is 0.
+Unity.InternalAPIEditorBridge.001.csproj, code is 641, comment is 0, blank is 0.
+Unity.InternalAPIEngineBridge.001.csproj, code is 618, comment is 0, blank is 0.
+Unity.Mathematics.csproj, code is 701, comment is 0, blank is 0.
+Unity.Mathematics.Editor.csproj, code is 644, comment is 0, blank is 0.
+Unity.Rider.Editor.csproj, code is 653, comment is 0, blank is 0.
+Unity.TextMeshPro.csproj, code is 675, comment is 0, blank is 0.
+Unity.TextMeshPro.Editor.csproj, code is 687, comment is 0, blank is 0.
+Unity.Timeline.csproj, code is 686, comment is 0, blank is 0.
+Unity.Timeline.Editor.csproj, code is 876, comment is 0, blank is 0.
+Unity.VSCode.Editor.csproj, code is 643, comment is 0, blank is 0.
+UnityEditor.TestRunner.csproj, code is 786, comment is 0, blank is 0.
+UnityEngine.TestRunner.csproj, code is 720, comment is 0, blank is 0.
+UnityProjects.sln, code is 17, comment is 0, blank is 0.
+===============================================================================
+===============================================================================
+EXTENSION NAME : linecounter
+EXTENSION VERSION : 0.2.7
+-------------------------------------------------------------------------------
+count time : 2021-12-22 10:57:03
+count workspace : c:\Users\User\Documents\GitHub\UnityProjects\UnityProjects
+total files : 51
+total code lines : 20161
+total comment lines : 36
+total blank lines : 112
+
+    statistics
+   |      extension|     total code|  total comment|    total blank|percent|
+   -------------------------------------------------------------------------
+   |        .csproj|          18656|              0|              0|     93|
+   |           .log|             52|              0|              6|   0.26|
+   |           .sln|             17|              0|              0|  0.084|
+   |          .json|            444|              0|              0|    2.2|
+   |            .cs|            837|             36|            106|    4.2|
+   |.physicsMaterial2D|             11|              0|              0|  0.055|
+   |  .inputactions|            144|              0|              0|   0.71|
+   -------------------------------------------------------------------------
+Assembly-CSharp.csproj, code is 680, comment is 0, blank is 0.
+Assets\InputSystem\InputActions.inputactions, code is 144, comment is 0, blank is 0.
+Assets\Physics\PongBouncy.physicsMaterial2D, code is 11, comment is 0, blank is 0.
+Assets\Scripts\Menu\MenuButtons.cs, code is 140, comment is 14, blank is 12.
+Assets\Scripts\Menu\SceneData.cs, code is 4, comment is 0, blank is 0.
+Assets\Scripts\Menu\SceneLoader.cs, code is 34, comment is 1, blank is 6.
+Assets\Scripts\Pong\PongBallMovement.cs, code is 50, comment is 2, blank is 6.
+Assets\Scripts\Pong\PongPlayerControll.cs, code is 23, comment is 0, blank is 2.
+Assets\Scripts\Pong\PongScoreManager.cs, code is 43, comment is 3, blank is 6.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAI.cs, code is 11, comment is 0, blank is 1.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel1.cs, code is 15, comment is 0, blank is 2.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel2.cs, code is 35, comment is 0, blank is 4.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel3.cs, code is 56, comment is 2, blank is 7.
+Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel4.cs, code is 56, comment is 2, blank is 7.
+Assets\Scripts\TicTacToe\TicTacToeButtonClick.cs, code is 36, comment is 0, blank is 4.
+Assets\Scripts\TicTacToe\TicTacToeButtonManager.cs, code is 61, comment is 0, blank is 8.
+Assets\Scripts\TicTacToe\TicTacToeGame.cs, code is 104, comment is 8, blank is 13.
+Assets\Scripts\TicTacToe\TicTacToeGameController.cs, code is 58, comment is 1, blank is 10.
+Assets\Scripts\TicTacToe\TicTacToeLineManager.cs, code is 69, comment is 0, blank is 13.
+Assets\Scripts\TicTacToe\TicTacToePlayerToMove.cs, code is 25, comment is 0, blank is 3.
+Assets\Scripts\TicTacToe\TicTacToeStats.cs, code is 17, comment is 3, blank is 2.
+Logs\Packages-Update.log, code is 52, comment is 0, blank is 6.
+Packages\manifest.json, code is 49, comment is 0, blank is 0.
+Packages\packages-lock.json, code is 395, comment is 0, blank is 0.
+PsdPlugin.csproj, code is 682, comment is 0, blank is 0.
+Unity.2D.Animation.Editor.csproj, code is 853, comment is 0, blank is 0.
+Unity.2D.Animation.Runtime.csproj, code is 646, comment is 0, blank is 0.
+Unity.2D.Animation.Triangle.Runtime.csproj, code is 701, comment is 0, blank is 0.
+Unity.2D.Common.Editor.csproj, code is 649, comment is 0, blank is 0.
+Unity.2D.Common.Runtime.csproj, code is 617, comment is 0, blank is 0.
+Unity.2D.Path.Editor.csproj, code is 685, comment is 0, blank is 0.
+Unity.2D.PixelPerfect.csproj, code is 620, comment is 0, blank is 0.
+Unity.2D.PixelPerfect.Editor.csproj, code is 642, comment is 0, blank is 0.
+Unity.2D.Psdimporter.Editor.csproj, code is 673, comment is 0, blank is 0.
+Unity.2D.SpriteShape.Editor.csproj, code is 673, comment is 0, blank is 0.
+Unity.2D.SpriteShape.Runtime.csproj, code is 641, comment is 0, blank is 0.
+Unity.CollabProxy.Editor.csproj, code is 656, comment is 0, blank is 0.
+Unity.InputSystem.csproj, code is 908, comment is 0, blank is 0.
+Unity.InternalAPIEditorBridge.001.csproj, code is 641, comment is 0, blank is 0.
+Unity.InternalAPIEngineBridge.001.csproj, code is 618, comment is 0, blank is 0.
+Unity.Mathematics.csproj, code is 701, comment is 0, blank is 0.
+Unity.Mathematics.Editor.csproj, code is 644, comment is 0, blank is 0.
+Unity.Rider.Editor.csproj, code is 653, comment is 0, blank is 0.
+Unity.TextMeshPro.csproj, code is 675, comment is 0, blank is 0.
+Unity.TextMeshPro.Editor.csproj, code is 687, comment is 0, blank is 0.
+Unity.Timeline.csproj, code is 686, comment is 0, blank is 0.
+Unity.Timeline.Editor.csproj, code is 876, comment is 0, blank is 0.
+Unity.VSCode.Editor.csproj, code is 643, comment is 0, blank is 0.
+UnityEditor.TestRunner.csproj, code is 786, comment is 0, blank is 0.
+UnityEngine.TestRunner.csproj, code is 720, comment is 0, blank is 0.
+UnityProjects.sln, code is 17, comment is 0, blank is 0.
+===============================================================================

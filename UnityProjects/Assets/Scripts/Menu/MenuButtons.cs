@@ -10,9 +10,13 @@ public class MenuButtons : MonoBehaviour
     [SerializeField]
     private int gameID = -1;
     [SerializeField]
-    public int gameLocation;
+    private int gameLocation;
     [SerializeField]
-    public int backLocation;
+    private int backLocation;
+    [SerializeField]
+    private bool showScore;
+    [SerializeField]
+    private bool resetGameStats;
 
     void Start() //Default Settings
     {
@@ -21,23 +25,31 @@ public class MenuButtons : MonoBehaviour
             case 0: //No Game Selected
                 return;
             case 1: //TicTacToe
-                Debug.Log("TicTacToe");
-                TicTacToeStats.pointsNeedToWin = 3;
-                TicTacToeStats.AILevel = 0;                
-                TicTacToeStats.duringRestart = false;
-                TicTacToeStats.duringMove = false;
-                TicTacToeStats.matchpoint = false;
-                TicTacToeStats.player1Score = 0;
-                TicTacToeStats.player2Score = 0;
-                TicTacToeStats.moves = 0;
+                if (resetGameStats) //Default settings
+                {
+                    TicTacToeStats.pointsNeedToWin = 3;
+                    TicTacToeStats.AILevel = 0;
+                    TicTacToeStats.duringRestart = false;
+                    TicTacToeStats.duringMove = false;
+                    TicTacToeStats.matchpoint = false;
+                    TicTacToeStats.player1Score = 0;
+                    TicTacToeStats.player2Score = 0;
+                    TicTacToeStats.moves = 0;
 
-                for (int i = 0; i < 9; i++) TicTacToeStats.buttonUsed[i] = 0;
+                    for (int i = 0; i < 9; i++) TicTacToeStats.buttonUsed[i] = 0;
+                }
+
+                if (showScore)
+                {
+                    GameObject.Find("Score").GetComponentInChildren<Text>().text = "Score : " + TicTacToeStats.player1Score.ToString() + " - " + TicTacToeStats.player2Score.ToString();
+                    //Animation which player won
+                }
                 return;
-            case 2:
+            case 2: //Pong
                 return;
-            case 3:
+            case 3: //Snake
                 return;
-            case 4:
+            case 4: //Chess
                 return;
             case 5:
                 return;
@@ -60,6 +72,10 @@ public class MenuButtons : MonoBehaviour
     {
         if (gameLocation < SceneLoader.instance.GetTotalNumberOfScenes()) SceneLoader.instance.SetScene(gameLocation);  //wrong scenes could go here
         else Error(2);
+    }
+
+    public void Score(float score1, float score2, int gameID)
+    {
     }
 
     //TicTacToe

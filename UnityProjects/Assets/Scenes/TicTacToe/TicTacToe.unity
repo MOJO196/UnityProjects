@@ -2102,8 +2102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   line1: {fileID: 454472027}
   line2: {fileID: 674657726}
-  width: 0.25
   color: {r: 0, g: 0, b: 0, a: 1}
+  width: 0.25
 --- !u!1001 &8296700829282953500
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AILevel3", menuName = "TicTacToeAIs/AILevel3")]
-public class TicTacToeAILevel3 : TicTacToeAI
+[CreateAssetMenu(fileName = "AILevel4", menuName = "TicTacToeAIs/AILevel4")]
+public class TicTacToeAILevel4 : TicTacToeAI
 {
     public override int NextMove()
     {

@@ -7,7 +7,6 @@ public class TicTacToeAILevel2 : TicTacToeAI
 {
     public override int NextMove()
     {
-        Debug.Log("AI2");
         int result = -1;
 
         for (int i = 0; i < 9; i++)

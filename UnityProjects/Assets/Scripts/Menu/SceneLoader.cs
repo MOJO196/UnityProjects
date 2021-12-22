@@ -20,11 +20,11 @@ public class SceneLoader : MonoBehaviour
     {
         return SceneManager.sceneCountInBuildSettings;
     }
-    
+
     public void NextScene()
     {
-        SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;        
-        StartCoroutine(SetActiveScene(SceneData.currentScene+1));
+        SceneData.currentScene = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(SetActiveScene(SceneData.currentScene + 1));
     }
 
     public void SetScene(int sceneID)
@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator SetActiveScene(int sceneID)
     {
-        yield return new WaitForSeconds(1); //Transition
+        yield return new WaitForSeconds(1); //Transition time
         SceneManager.LoadScene(sceneID);
     }
 }

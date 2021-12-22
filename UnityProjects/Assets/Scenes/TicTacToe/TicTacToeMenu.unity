@@ -1003,6 +1003,8 @@ MonoBehaviour:
   gameID: 1
   gameLocation: 2
   backLocation: 0
+  showScore: 0
+  resetGameStats: 1
 --- !u!1 &1895668587
 GameObject:
   m_ObjectHideFlags: 0
