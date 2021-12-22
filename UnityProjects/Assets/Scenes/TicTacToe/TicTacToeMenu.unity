@@ -1000,9 +1000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ad7b41816e81342964643e82d4bdd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backLocation: 0
+  gameID: 1
   gameLocation: 2
-  gameMode: 0
+  backLocation: 0
 --- !u!1 &1895668587
 GameObject:
   m_ObjectHideFlags: 0

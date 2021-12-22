@@ -7,6 +7,7 @@ public class TicTacToeAILevel2 : TicTacToeAI
 {
     public override int NextMove()
     {
+        Debug.Log("AI2");
         int result = -1;
 
         for (int i = 0; i < 9; i++)
@@ -30,15 +31,6 @@ public class TicTacToeAILevel2 : TicTacToeAI
                         TicTacToeStats.buttonUsed[j] = 0;
 
                         if (result != -1) return j;
-                    }
-                    if (result == -1 && j == 8)
-                    {
-                        for (; ; )
-                        {
-                            int move = Random.Range(0, 9);
-
-                            if (TicTacToeStats.buttonUsed[move] == 0) return move;
-                        }
                     }
                 }
             }

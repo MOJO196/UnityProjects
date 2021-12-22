@@ -21,6 +21,7 @@ public class MenuButtons : MonoBehaviour
             case 0: //No Game Selected
                 return;
             case 1: //TicTacToe
+                Debug.Log("TicTacToe");
                 TicTacToeStats.pointsNeedToWin = 3;
                 TicTacToeStats.AILevel = 0;                
                 TicTacToeStats.duringRestart = false;
@@ -82,6 +83,7 @@ public class MenuButtons : MonoBehaviour
                 return;
             case 3:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
+                TicTacToeStats.AILevel = AILevel;
                 return;
             default:
                 AILevel = -1;

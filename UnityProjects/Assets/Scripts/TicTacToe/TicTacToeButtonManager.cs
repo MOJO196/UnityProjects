@@ -21,17 +21,34 @@ public class TicTacToeButtonManager : MonoBehaviour
 
     public void AIMove()
     {
-        if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove)
+        if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove && TicTacToeStats.AILevel != 0)
         {
-            if (TicTacToeStats.AILevel == 0) return;
-            int nextAIMove = AIs[TicTacToeStats.AILevel - 1].NextMove();
+            Debug.Log(TicTacToeStats.moves + ", " + TicTacToeStats.AILevel);
 
-            if (nextAIMove != -1 || nextAIMove > 8)
+            if (TicTacToeStats.moves == 0)
             {
-                buttons[nextAIMove].Select();
-                buttons[nextAIMove].onClick.Invoke();
+                Move(4);
+                return;
             }
-            else Debug.Log("ERROR");
+
+            int nextAIMove = -1;
+
+            switch (TicTacToeStats.AILevel)
+            {
+                case 1:
+                    nextAIMove = AIs[0].NextMove();
+                    break;
+                case 2:
+                    nextAIMove = AIs[1].NextMove();
+                    if (nextAIMove == -1) nextAIMove = AIs[0].NextMove();
+                    break;
+                case 3:
+                    nextAIMove = AIs[1].NextMove();
+                    if (nextAIMove == -1 && TicTacToeStats.moves < 7) nextAIMove = AIs[2].NextMove();
+                    if (nextAIMove == -1) nextAIMove = AIs[0].NextMove();
+                    break;
+            }
+            Move(nextAIMove);
         }
     }
 
@@ -40,8 +57,13 @@ public class TicTacToeButtonManager : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             TicTacToeStats.buttonUsed[i] = 0;
-            buttons[i].Select();
-            buttons[i].onClick.Invoke();
+            Move(i);
         }
+    }
+
+    private void Move(int movePos)
+    {
+        buttons[movePos].Select();
+        buttons[movePos].onClick.Invoke();
     }
 }

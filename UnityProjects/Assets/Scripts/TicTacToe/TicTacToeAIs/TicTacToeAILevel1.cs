@@ -7,6 +7,8 @@ public class TicTacToeAILevel1 : TicTacToeAI
 {
     public override int NextMove()
     {
+        Debug.Log("AI1");
+        
         for (; ; )
         {
             int move = Random.Range(0, 9);

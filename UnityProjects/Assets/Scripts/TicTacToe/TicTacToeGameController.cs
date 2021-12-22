@@ -41,6 +41,7 @@ public class TicTacToeGameController : MonoBehaviour
         {
             if (TicTacToeStats.player1Score == TicTacToeStats.pointsNeedToWin || TicTacToeStats.player2Score == TicTacToeStats.pointsNeedToWin)
             {
+                Debug.Log("EndGame by Reset "+TicTacToeStats.pointsNeedToWin);
                 TicTacToeGameController.instance.EndGame();
                 return;
             }

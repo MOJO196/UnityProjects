@@ -71,7 +71,7 @@ public class TicTacToeLineManager : MonoBehaviour
 
 
 
-    public virtual void ResetLine()
+    public void ResetLine()
     {
         line1.positionCount = 0;
         line1.positionCount = positionCount;
