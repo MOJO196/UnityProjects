@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TicTacToeButtonManager : MonoBehaviour
 {
     public Button[] buttons = new Button[9];
-    public TicTacToeAI[] AIs = new TicTacToeAI[3];
+    public TicTacToeAI[] AIs = new TicTacToeAI[5];
     public static TicTacToeButtonManager instance;
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class TicTacToeButtonManager : MonoBehaviour
     {
         if (TicTacToeStats.gameRunning && !TicTacToeStats.player1ToMove && TicTacToeStats.AILevel != 0)
         {
-            Debug.Log(TicTacToeStats.moves + ", " + TicTacToeStats.AILevel);
+            //Debug.Log(TicTacToeStats.moves + ", " + TicTacToeStats.AILevel); //Debug AI Moves
 
             if (TicTacToeStats.moves == 0)
             {
@@ -44,7 +44,12 @@ public class TicTacToeButtonManager : MonoBehaviour
                     break;
                 case 3:
                     nextAIMove = AIs[1].NextMove();
-                    if (nextAIMove == -1 && TicTacToeStats.moves < 7) nextAIMove = AIs[2].NextMove();
+                    if (nextAIMove == -1) nextAIMove = AIs[2].NextMove();
+                    if (nextAIMove == -1) nextAIMove = AIs[0].NextMove();
+                    break;
+                case 4:
+                    nextAIMove = AIs[1].NextMove();
+                    if (nextAIMove == -1) nextAIMove = AIs[3].NextMove();
                     if (nextAIMove == -1) nextAIMove = AIs[0].NextMove();
                     break;
             }

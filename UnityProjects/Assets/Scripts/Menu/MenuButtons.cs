@@ -27,8 +27,21 @@ public class MenuButtons : MonoBehaviour
             case 1: //TicTacToe
                 if (resetGameStats) //Default settings
                 {
-                    TicTacToeStats.pointsNeedToWin = 3;
-                    TicTacToeStats.AILevel = 0;
+                    AILevel = TicTacToeStats.AILevel - 1;
+                    TicTacToeAILevel();
+                    switch (TicTacToeStats.pointsNeedToWin)
+                    {
+                        case 5:
+                            maxPoints = 0;
+                            break;
+                        case 256:
+                            maxPoints = 1;
+                            break;
+                        default:
+                            maxPoints = -1;
+                            break;
+                    }
+                    TicTacToeMaxPoints();
                     TicTacToeStats.duringRestart = false;
                     TicTacToeStats.duringMove = false;
                     TicTacToeStats.matchpoint = false;
@@ -101,6 +114,10 @@ public class MenuButtons : MonoBehaviour
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
                 TicTacToeStats.AILevel = AILevel;
                 return;
+            case 4:
+                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - very hard";
+                TicTacToeStats.AILevel = AILevel;
+                return;
             default:
                 AILevel = -1;
                 TicTacToeAILevel();
@@ -124,9 +141,9 @@ public class MenuButtons : MonoBehaviour
                 return;
             case 2:
                 GameObject.Find("PointsToWin").GetComponentInChildren<Text>().text = "no limit";
-                TicTacToeStats.pointsNeedToWin = 999; //Nobody will reach this amount of rounds
+                TicTacToeStats.pointsNeedToWin = 256; //Nobody will reach this amount of rounds
                 return;
-            case 3:
+            default:
                 maxPoints = -1;
                 TicTacToeMaxPoints();
                 return;
@@ -149,7 +166,7 @@ public class MenuButtons : MonoBehaviour
             case 3:
                 return;
             default:
-                Debug.Log("Worng code");
+                Debug.Log("Wrong ERROR code!");
                 return;
         }
     }
