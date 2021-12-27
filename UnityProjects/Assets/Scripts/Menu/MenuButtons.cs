@@ -55,6 +55,7 @@ public class MenuButtons : MonoBehaviour
                 if (showScore)
                 {
                     GameObject.Find("Score").GetComponentInChildren<Text>().text = "Score : " + TicTacToeStats.player1Score.ToString() + " - " + TicTacToeStats.player2Score.ToString();
+                    OverallScore();
                     //Animation which player won
                 }
                 return;
@@ -85,10 +86,6 @@ public class MenuButtons : MonoBehaviour
     {
         if (gameLocation < SceneLoader.instance.GetTotalNumberOfScenes()) SceneLoader.instance.SetScene(gameLocation);  //wrong scenes could go here
         else Error(2);
-    }
-
-    public void Score(float score1, float score2, int gameID)
-    {
     }
 
     //TicTacToe
@@ -148,6 +145,12 @@ public class MenuButtons : MonoBehaviour
                 TicTacToeMaxPoints();
                 return;
         }
+    }
+
+    public void OverallScore()
+    {
+        TicTacToeData data = SaveSystem.LoadTicTacToe();
+        Debug.Log(data.score);
     }
 
     //Error

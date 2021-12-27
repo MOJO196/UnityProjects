@@ -10,8 +10,8 @@ public static class TicTacToeStats
     public static int[] buttonUsed = new int[9];
 
     //Score
-    public static float player1Score;
-    public static float player2Score;
+    public static int player1Score;
+    public static int player2Score;
     public static bool matchpoint;
     public static int pointsNeedToWin;
 
