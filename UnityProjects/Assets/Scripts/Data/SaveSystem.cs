@@ -10,23 +10,13 @@ public static class SaveSystem
     private static string tictactoePath = Application.persistentDataPath + "/data.tictactoe";
     public static void SaveTicTacToeGame()
     {
+        TicTacToeData data = new TicTacToeData();
+
         BinaryFormatter formatter = new BinaryFormatter();
-        if (File.Exists(tictactoePath))
-        {
-            FileStream stream = new FileStream(tictactoePath, FileMode.Append);
-            TicTacToeData data = new TicTacToeData();
+        FileStream stream = new FileStream(tictactoePath, FileMode.Create);
 
-            formatter.Serialize(stream, data);
-            stream.Close();
-        }
-        else
-        {
-            FileStream stream = new FileStream(tictactoePath, FileMode.Create);
-            TicTacToeData data = new TicTacToeData();
-
-            formatter.Serialize(stream, data);
-            stream.Close();
-        }
+        formatter.Serialize(stream, data);
+        stream.Close();
     }
 
     public static TicTacToeData LoadTicTacToe()

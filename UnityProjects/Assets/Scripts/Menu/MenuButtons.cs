@@ -150,7 +150,9 @@ public class MenuButtons : MonoBehaviour
     public void OverallScore()
     {
         TicTacToeData data = SaveSystem.LoadTicTacToe();
-        Debug.Log(data.score);
+        Debug.Log("-------------------");
+        for (int i = 0; i < 6; i++) Debug.Log(data.score[i, 1] + " - " + data.score[i, 2]);
+        Debug.Log("-------------------");
     }
 
     //Error
