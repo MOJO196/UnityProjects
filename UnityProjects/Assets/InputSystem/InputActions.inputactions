@@ -65,7 +65,7 @@
                     "id": "e7bfcb77-ee23-4bea-ac43-49561fd073b6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
@@ -134,6 +134,134 @@
                     "processors": "",
                     "groups": "",
                     "action": "EndGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Snake",
+            "id": "57a41421-4f87-45c4-b247-d93ee1be0c16",
+            "actions": [
+                {
+                    "name": "UP",
+                    "type": "Button",
+                    "id": "2956daa2-8fc1-4512-ae2d-a96b07376147",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "DOWN",
+                    "type": "Button",
+                    "id": "072a26f1-a2d7-4dd9-9112-63f2ce5f08c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "LEFT",
+                    "type": "Button",
+                    "id": "613b19f3-3392-443a-9423-30ca3e970a18",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "RIGHT",
+                    "type": "Button",
+                    "id": "43ac774e-eed9-4904-a14e-21b355e6599a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press"
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ee5dbb37-550c-4485-8502-d9c8bb2b59a8",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UP",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "294231f6-0d1b-4b1e-b9a4-4afc695ee5d5",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UP",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "38a90626-adc4-4ed0-bfea-6e9de4f20dac",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DOWN",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21229092-81ff-44cc-8685-1eeaf2db61bb",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DOWN",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b66e1922-de0a-4420-8f62-5011a7f642b4",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LEFT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "665feb78-4765-4ad4-81bd-7af9843e7498",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LEFT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22de171f-612e-4cbe-8738-ce957c8293e0",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RIGHT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdf12013-e946-419d-be33-1969df6e04a9",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RIGHT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

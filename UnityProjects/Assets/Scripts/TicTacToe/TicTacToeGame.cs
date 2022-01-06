@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class TicTacToeGame : MonoBehaviour
 {
-    public int[][] possibleWins;
+    [SerializeField]
+    private Camera cam;
+    private int[][] possibleWins;
     public static TicTacToeGame instance;
 
     void Awake()
@@ -29,7 +31,7 @@ public class TicTacToeGame : MonoBehaviour
 
     public int CheckGameState(int player, bool getWinner)
     {
-        int[] winningMoves = {-1, -1};
+        int[] winningMoves = { -1, -1 };
 
         for (int i = 0; i < possibleWins.Length; i++)
         {
@@ -55,8 +57,8 @@ public class TicTacToeGame : MonoBehaviour
             {
                 int length = 0;
                 if (winningMoves[1] == -1) length = 1;
-                
-                for (int i = 0; i < winningMoves.Length-length; i++)
+
+                for (int i = 0; i < winningMoves.Length - length; i++)
                 {
                     switch (winningMoves[i])
                     {
@@ -107,15 +109,29 @@ public class TicTacToeGame : MonoBehaviour
         {
             case 1:
                 TicTacToeStats.player1Score++;
-                Debug.Log("Player " + player + " won!");    //Player1 won overlay
+                Debug.Log("Player " + player + " won!");
+                //Player1 won overlay
                 break;
             case 2:
                 TicTacToeStats.player2Score++;
-                if (!(TicTacToeStats.AILevel == 0)) Debug.Log("AI won!");   //AI won Overlay
-                else Debug.Log("Player " + player + " won!");    //Player2 won overlay
-                break;                
+                if (!(TicTacToeStats.AILevel == 0))
+                {
+                    Debug.Log("AI won!");
+                    //AI won Overlay
+                }
+                else
+                {
+                    Debug.Log("Player " + player + " won!");
+                    //Player2 won overlay
+                }
+                break;
         }
 
-        if (TicTacToeStats.player1Score == TicTacToeStats.pointsNeedToWin - 1 || TicTacToeStats.player2Score == TicTacToeStats.pointsNeedToWin - 1) TicTacToeStats.matchpoint = true; //Matchpoint overlay
+        if (TicTacToeStats.player1Score == TicTacToeStats.pointsNeedToWin - 1 || TicTacToeStats.player2Score == TicTacToeStats.pointsNeedToWin - 1)
+        {
+            TicTacToeStats.matchpoint = true;
+            Debug.Log("Matchpoint");
+            //Matchpoint overlay 
+        }
     }
 }
