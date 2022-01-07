@@ -19,14 +19,10 @@ public class SnakePlayerController : MonoBehaviour
         {
             duringMove = true;
 
-            if (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == -1)
-            {
-                MakeMove(1, true);
-                return;
-            }
+            if (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == -1) SnakeStats.score++;
 
-            if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
-            !(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(1, false);
         }
     }
@@ -39,12 +35,13 @@ public class SnakePlayerController : MonoBehaviour
 
             if (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == -1)
             {
+                SnakeStats.score++;
                 MakeMove(2, true);
                 return;
             }
 
-            if (SnakeStats.playerPos[0]-- < SnakeStats.row || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
-            !(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[0]-- < SnakeStats.row || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(2, false);
         }
     }
@@ -57,12 +54,13 @@ public class SnakePlayerController : MonoBehaviour
 
             if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == -1)
             {
+                SnakeStats.score++;
                 MakeMove(3, true);
                 return;
             }
 
-            if (SnakeStats.playerPos[1]-- < SnakeStats.col || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] != 0 &&
-            !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[1]-- < SnakeStats.col || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(3, false);
         }
     }
@@ -75,27 +73,30 @@ public class SnakePlayerController : MonoBehaviour
 
             if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] == -1)
             {
+                SnakeStats.score++;
                 MakeMove(4, true);
                 return;
             }
 
-            if (SnakeStats.playerPos[1]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] != 0 &&
-            !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]]++ == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[1]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]]++ == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(4, false);
         }
     }
 
     void MakeMove(int direction, bool fruit)
     {
-        for (int j = 0; j < SnakeStats.row; j++)
+        SnakeStats.score++;
+        for (int i = 0; i < SnakeStats.row; i++)
         {
-            for (int k = 0; k < SnakeStats.col; k++)
+            for (int j = 0; j < SnakeStats.col; j++)
             {
-                if (SnakeStats.gameState[j, k] != -1 || SnakeStats.gameState[j, k] != 0)
+                if (SnakeStats.gameState[i, j] != -1 && SnakeStats.gameState[i, j] != 0)
                 {
-                    SnakeStats.gameState[j, k]++;
+                    SnakeStats.gameState[i, j]++;
 
-                    if (SnakeStats.gameState[j, k] > SnakeStats.score) SnakeStats.gameState[j, k] = 0;
+                    if (SnakeStats.gameState[i, j] > SnakeStats.score) SnakeStats.gameState[i, j] = 0;
+                    else SnakeGridManager.instance.EditTileColor(i, j);
                 }
             }
         }
@@ -115,7 +116,12 @@ public class SnakePlayerController : MonoBehaviour
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0], SnakeStats.playerPos[1]++);
                 break;
         }
+        StartCoroutine(Wait());
+    }
 
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(1);
         duringMove = false;
     }
 }

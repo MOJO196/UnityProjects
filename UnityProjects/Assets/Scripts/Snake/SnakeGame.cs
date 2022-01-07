@@ -4,31 +4,30 @@ using UnityEngine;
 
 public class SnakeGame : MonoBehaviour
 {
-    [SerializeField]
-    private int rowSize;    //should not be even
-    [SerializeField]
-    private int colSize;    //should not be even
     public static SnakeGame instance;
 
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
         else instance = this;
-
-        SnakeStats.row = rowSize;
-        SnakeStats.col = colSize;
     }
 
-    void Start() 
+    void Start()
     {
         CreateNewGame();
+    }
+
+    void SatrtingPosition()
+    {
+        int startingRow = Random.Range(0, SnakeStats.row);
+        int startingCol = Random.Range(0, SnakeStats.col);
+        UpdatePlayerPosition(startingRow, startingCol);
     }
 
     public void CreateNewGame()
     {
         SnakeGridManager.instance.CreateNewGrid();
-
-        UpdatePlayerPosition(SnakeStats.row / 2, SnakeStats.col / 2);
+        SatrtingPosition();
         SummonFruit();
         SnakeGridManager.instance.UpdateGrid();
         SnakeStats.gameRunning = true;
@@ -40,8 +39,8 @@ public class SnakeGame : MonoBehaviour
 
         for (; ; )
         {
-            int fruitRow = Random.Range(0, SnakeStats.row + 1);
-            int fruitCol = Random.Range(0, SnakeStats.col + 1);
+            int fruitRow = Random.Range(0, SnakeStats.row);
+            int fruitCol = Random.Range(0, SnakeStats.col);
 
             if (SnakeStats.gameState[fruitRow, fruitCol] == 0)
             {
@@ -61,5 +60,6 @@ public class SnakeGame : MonoBehaviour
         SnakeStats.playerPos[0] = row;
         SnakeStats.playerPos[1] = col;
         SnakeStats.gameState[row, col] = 1;
+        SnakeGridManager.instance.UpdateGrid();
     }
 }
