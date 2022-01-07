@@ -15,18 +15,23 @@ public class SnakeGame : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         else instance = this;
 
-        SnakeStats.rowSize = rowSize;
-        SnakeStats.colSize = colSize;
+        SnakeStats.row = rowSize;
+        SnakeStats.col = colSize;
+    }
+
+    void Start() 
+    {
+        CreateNewGame();
     }
 
     public void CreateNewGame()
     {
-        SnakeStats.gameRunning = true;
-        SnakeStats.gameState = new int[SnakeStats.rowSize, SnakeStats.colSize];
+        SnakeGridManager.instance.CreateNewGrid();
 
-        //starting position
-        UpdatePlayerPosition(SnakeStats.rowSize / 2 + 1, SnakeStats.colSize / 2 + 1);
+        UpdatePlayerPosition(SnakeStats.row / 2, SnakeStats.col / 2);
         SummonFruit();
+        SnakeGridManager.instance.UpdateGrid();
+        SnakeStats.gameRunning = true;
     }
 
     public void SummonFruit()
@@ -35,8 +40,8 @@ public class SnakeGame : MonoBehaviour
 
         for (; ; )
         {
-            int fruitRow = Random.Range(0, SnakeStats.rowSize);
-            int fruitCol = Random.Range(0, SnakeStats.colSize);
+            int fruitRow = Random.Range(0, SnakeStats.row + 1);
+            int fruitCol = Random.Range(0, SnakeStats.col + 1);
 
             if (SnakeStats.gameState[fruitRow, fruitCol] == 0)
             {

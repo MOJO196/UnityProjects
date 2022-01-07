@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnakePlayerController : MonoBehaviour
 {
     public static SnakePlayerController instance;
+    bool duringMove = false;
 
     void Awake()
     {
@@ -14,61 +15,81 @@ public class SnakePlayerController : MonoBehaviour
 
     public void UP()
     {
-        if (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == -1)
+        if (!duringMove)
         {
-            MakeMove(1, true);
-            return;
-        }
+            duringMove = true;
 
-        if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
-        !(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
-        else MakeMove(1, false);
+            if (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == -1)
+            {
+                MakeMove(1, true);
+                return;
+            }
+
+            if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
+            !(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            else MakeMove(1, false);
+        }
     }
 
     public void DOWN()
     {
-        if (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == -1)
+        if (!duringMove)
         {
-            MakeMove(2, true);
-            return;
-        }
+            duringMove = true;
 
-        if (SnakeStats.playerPos[0]-- < SnakeStats.rowSize || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
-        !(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
-        else MakeMove(2, false);
+            if (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == -1)
+            {
+                MakeMove(2, true);
+                return;
+            }
+
+            if (SnakeStats.playerPos[0]-- < SnakeStats.row || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
+            !(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            else MakeMove(2, false);
+        }
     }
 
     public void LEFT()
     {
-        if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == -1)
+        if (!duringMove)
         {
-            MakeMove(3, true);
-            return;
-        }
+            duringMove = true;
 
-        if (SnakeStats.playerPos[1]-- < SnakeStats.colSize || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] != 0 &&
-        !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == SnakeStats.score))) SnakeGame.instance.GameOver();
-        else MakeMove(3, false);
+            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == -1)
+            {
+                MakeMove(3, true);
+                return;
+            }
+
+            if (SnakeStats.playerPos[1]-- < SnakeStats.col || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] != 0 &&
+            !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            else MakeMove(3, false);
+        }
     }
 
     public void RIGHT()
     {
-        if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] == -1)
+        if (!duringMove)
         {
-            MakeMove(4, true);
-            return;
-        }
+            duringMove = true;
 
-        if (SnakeStats.playerPos[1]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] != 0 &&
-        !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]]++ == SnakeStats.score))) SnakeGame.instance.GameOver();
-        else MakeMove(4, false);
+            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] == -1)
+            {
+                MakeMove(4, true);
+                return;
+            }
+
+            if (SnakeStats.playerPos[1]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] != 0 &&
+            !(SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]]++ == SnakeStats.score))) SnakeGame.instance.GameOver();
+            else MakeMove(4, false);
+        }
     }
 
-    private void MakeMove(int direction, bool fruit)
+    void MakeMove(int direction, bool fruit)
     {
-        for (int j = 0; j < SnakeStats.rowSize; j++)
+        for (int j = 0; j < SnakeStats.row; j++)
         {
-            for (int k = 0; k < SnakeStats.colSize; k++)
+            for (int k = 0; k < SnakeStats.col; k++)
             {
                 if (SnakeStats.gameState[j, k] != -1 || SnakeStats.gameState[j, k] != 0)
                 {
@@ -83,16 +104,18 @@ public class SnakePlayerController : MonoBehaviour
         {
             case 1: //UP
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]);
-                return;
+                break;
             case 2: //DOWN
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]);
-                return;
+                break;
             case 3: //LEFT
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0], SnakeStats.playerPos[1]--);
-                return;
+                break;
             case 4: //RIGHT
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0], SnakeStats.playerPos[1]++);
-                return;
+                break;
         }
+
+        duringMove = false;
     }
 }
