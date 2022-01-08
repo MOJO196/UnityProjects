@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SnakeGridManager : MonoBehaviour
 {
-    int vertical, horizontal;
-    [SerializeField]
-    Sprite sprite;
     public static SnakeGridManager instance;
     void Awake()
     {
@@ -14,51 +11,62 @@ public class SnakeGridManager : MonoBehaviour
         else instance = this;
     }
 
-    public void CreateNewGrid()
+    public void CreateGrid()
     {
-        vertical = (int)Camera.main.orthographicSize;
-        horizontal = (int)(vertical * Camera.main.aspect);
+        GameObject referenzTile = (GameObject)Instantiate(Resources.Load("Snake0"));
 
-        SnakeStats.col = horizontal * 2;
-        SnakeStats.row = vertical * 2;
-
-        SnakeStats.gameState = new int[SnakeStats.row, SnakeStats.col];
-    }
-
-    public void UpdateGrid()
-    {
-        for (int i = 0; i < SnakeStats.col; i++)
+        for (int i = 0; i < SnakeStats.row; i++)
         {
-            for (int j = 0; j < SnakeStats.row; j++)
+            for (int j = 0; j < SnakeStats.col; j++)
             {
-                switch (SnakeStats.gameState[j, i])
-                {
-                    case -1:
-                        SpawnTile(i, j, Color.green);
-                        break;
-                    case 0:
-                        SpawnTile(i, j, Color.white);
-                        break;
-                    case 1:
-                        SpawnTile(i, j, Color.red);
-                        break;
-                }
+                GameObject tile = (GameObject)Instantiate(referenzTile, transform);
+
+                float posX = j * SnakeStats.tileSize;
+                float posY = i * -SnakeStats.tileSize;
+
+                tile.transform.position = new Vector2(posX, posY);
+                tile.name = (string)(i + ", " + j);
             }
         }
+
+        Destroy(referenzTile);
+
+        float gridW = SnakeStats.col * SnakeStats.tileSize;
+        float gridH = SnakeStats.row * SnakeStats.tileSize;
+
+        transform.position = new Vector2(-gridW / 2 + SnakeStats.tileSize / 2, gridH / 2 - SnakeStats.tileSize / 2);
     }
 
-    public void EditTileColor(int x, int y)
+    public void CreateTile(int r, int c, int id)
     {
-        string name = (string)(x + ", " + y);
-        GameObject.Find(name).GetComponent<SpriteRenderer>().color = Color.black;
-    }
+        Destroy(GameObject.Find((string)(r + ", " + c)));
 
-    void SpawnTile(int x, int y, Color color)
-    {
-        GameObject g = new GameObject(x + ", " + y);
-        g.transform.position = new Vector3(x - (horizontal - 0.5f), y - (vertical - 0.5f));
-        var s = g.AddComponent<SpriteRenderer>();
-        s.sprite = sprite;
-        s.color = color;
+        string spriteName;
+        switch (id)
+        {
+            case -1:
+                spriteName = "Snake-1";
+                break;
+            case 0:
+                spriteName = "Snake0";
+                break;
+            case 1:
+                spriteName = "Snake1";
+                break;
+            default:
+                spriteName = "Snake2";
+                break;
+        }
+
+        GameObject referenzTile = (GameObject)Instantiate(Resources.Load(spriteName));
+        GameObject tile = (GameObject)Instantiate(referenzTile, transform);
+
+        float posX = c * SnakeStats.tileSize;
+        float posY = r * -SnakeStats.tileSize;
+
+        tile.transform.position = new Vector2(posX + transform.position[0], posY + transform.position[1]);
+        tile.name = (string)(r + ", " + c);
+
+        Destroy(referenzTile);
     }
 }

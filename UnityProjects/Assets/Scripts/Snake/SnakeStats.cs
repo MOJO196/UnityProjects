@@ -10,4 +10,5 @@ public static class SnakeStats
     public static bool gameRunning;
     public static int row;
     public static int col;
+    public static float tileSize;
 }

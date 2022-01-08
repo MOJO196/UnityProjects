@@ -15,44 +15,43 @@ public class SnakePlayerController : MonoBehaviour
 
     public void UP()
     {
-        if (!duringMove)
+        if (!duringMove && SnakeStats.gameRunning)
         {
             duringMove = true;
 
-            if (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == -1) SnakeStats.score++;
+            if (SnakeStats.gameState[SnakeStats.playerPos[0] - 1, SnakeStats.playerPos[1]] == -1) SnakeStats.score++;
 
-            //if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
-            //!(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[0]-- < SnakeStats.row || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(1, false);
         }
     }
 
     public void DOWN()
     {
-        if (!duringMove)
+        if (!duringMove && SnakeStats.gameRunning)
         {
             duringMove = true;
 
-            if (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == -1)
+            if (SnakeStats.gameState[SnakeStats.playerPos[0] + 1, SnakeStats.playerPos[1]] == -1)
             {
                 SnakeStats.score++;
                 MakeMove(2, true);
                 return;
             }
-
-            //if (SnakeStats.playerPos[0]-- < SnakeStats.row || (SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] != 0 &&
-            //!(SnakeStats.gameState[SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
+            //if (SnakeStats.playerPos[0]++ < 0 || (SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] != 0 &&
+            //!(SnakeStats.gameState[SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]] == SnakeStats.score))) SnakeGame.instance.GameOver();
             else MakeMove(2, false);
         }
     }
 
     public void LEFT()
     {
-        if (!duringMove)
+        if (!duringMove && SnakeStats.gameRunning)
         {
             duringMove = true;
 
-            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]--] == -1)
+            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1] - 1] == -1)
             {
                 SnakeStats.score++;
                 MakeMove(3, true);
@@ -67,11 +66,11 @@ public class SnakePlayerController : MonoBehaviour
 
     public void RIGHT()
     {
-        if (!duringMove)
+        if (!duringMove && SnakeStats.gameRunning)
         {
             duringMove = true;
 
-            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1]++] == -1)
+            if (SnakeStats.gameState[SnakeStats.playerPos[0], SnakeStats.playerPos[1] + 1] == -1)
             {
                 SnakeStats.score++;
                 MakeMove(4, true);
@@ -96,7 +95,7 @@ public class SnakePlayerController : MonoBehaviour
                     SnakeStats.gameState[i, j]++;
 
                     if (SnakeStats.gameState[i, j] > SnakeStats.score) SnakeStats.gameState[i, j] = 0;
-                    else SnakeGridManager.instance.EditTileColor(i, j);
+                    else SnakeGridManager.instance.CreateTile(i, j, 2);
                 }
             }
         }
@@ -104,10 +103,10 @@ public class SnakePlayerController : MonoBehaviour
         switch (direction)
         {
             case 1: //UP
-                SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]);
+                SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]);
                 break;
             case 2: //DOWN
-                SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]--, SnakeStats.playerPos[1]);
+                SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0]++, SnakeStats.playerPos[1]);
                 break;
             case 3: //LEFT
                 SnakeGame.instance.UpdatePlayerPosition(SnakeStats.playerPos[0], SnakeStats.playerPos[1]--);

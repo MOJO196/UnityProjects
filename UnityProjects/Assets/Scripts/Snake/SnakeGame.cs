@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class SnakeGame : MonoBehaviour
 {
+    [SerializeField]
+    private int row;
+    [SerializeField]
+    private int col;
+    [SerializeField]
+    private float tileSize;
     public static SnakeGame instance;
 
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
         else instance = this;
+
+        SnakeStats.row = row;
+        SnakeStats.col = col;
+        SnakeStats.tileSize = tileSize;
+        SnakeStats.gameState = new int[SnakeStats.row, SnakeStats.col];
     }
 
     void Start()
@@ -26,10 +37,9 @@ public class SnakeGame : MonoBehaviour
 
     public void CreateNewGame()
     {
-        SnakeGridManager.instance.CreateNewGrid();
+        SnakeGridManager.instance.CreateGrid();
         SatrtingPosition();
         SummonFruit();
-        SnakeGridManager.instance.UpdateGrid();
         SnakeStats.gameRunning = true;
     }
 
@@ -45,6 +55,8 @@ public class SnakeGame : MonoBehaviour
             if (SnakeStats.gameState[fruitRow, fruitCol] == 0)
             {
                 SnakeStats.gameState[fruitRow, fruitCol] = -1;
+                SnakeGridManager.instance.CreateTile(fruitRow, fruitCol, -1);
+                Debug.Log(fruitRow + ", " + fruitCol);
                 return;
             }
         }
@@ -60,6 +72,6 @@ public class SnakeGame : MonoBehaviour
         SnakeStats.playerPos[0] = row;
         SnakeStats.playerPos[1] = col;
         SnakeStats.gameState[row, col] = 1;
-        SnakeGridManager.instance.UpdateGrid();
+        SnakeGridManager.instance.CreateTile(row, col, 1);
     }
 }

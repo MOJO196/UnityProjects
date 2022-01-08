@@ -213,9 +213,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1657846771}
-  - component: {fileID: 1657846770}
-  - component: {fileID: 1657846769}
   - component: {fileID: 1657846772}
+  - component: {fileID: 1657846769}
+  - component: {fileID: 1657846770}
   - component: {fileID: 1657846773}
   m_Layer: 0
   m_Name: SnakeGameController
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657846768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c60546131e083ce498a7468d5022c186, type: 3}
+  m_Script: {fileID: 11500000, guid: a30ea0e6795a61944a54f95ebf73d1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1657846770
@@ -245,11 +245,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657846768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e08be938b3618b4cab2aa89ff465c29, type: 3}
+  m_Script: {fileID: 11500000, guid: c60546131e083ce498a7468d5022c186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rowSize: 5
-  colSize: 5
 --- !u!4 &1657846771
 Transform:
   m_ObjectHideFlags: 0
@@ -265,6 +263,21 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1657846772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1657846768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e08be938b3618b4cab2aa89ff465c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  row: 9
+  col: 11
+  tileSize: 1
+--- !u!114 &1657846773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,7 +329,7 @@ MonoBehaviour:
     m_ActionName: TicTacToe/EndGame[/Keyboard/e]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657846769}
+      - m_Target: {fileID: 1657846770}
         m_MethodName: UP
         m_Mode: 1
         m_Arguments:
@@ -331,7 +344,7 @@ MonoBehaviour:
     m_ActionName: Snake/UP[/Keyboard/w,/Keyboard/upArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657846769}
+      - m_Target: {fileID: 1657846770}
         m_MethodName: DOWN
         m_Mode: 1
         m_Arguments:
@@ -346,7 +359,7 @@ MonoBehaviour:
     m_ActionName: Snake/DOWN[/Keyboard/s,/Keyboard/downArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657846769}
+      - m_Target: {fileID: 1657846770}
         m_MethodName: LEFT
         m_Mode: 1
         m_Arguments:
@@ -361,7 +374,7 @@ MonoBehaviour:
     m_ActionName: Snake/LEFT[/Keyboard/a,/Keyboard/leftArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1657846769}
+      - m_Target: {fileID: 1657846770}
         m_MethodName: RIGHT
         m_Mode: 1
         m_Arguments:
@@ -378,17 +391,4 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: Snake
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 1645930251}
---- !u!114 &1657846773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657846768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30ea0e6795a61944a54f95ebf73d1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 7480cf0038ee83e4fb20ac5d5dfc3fca, type: 3}
+  m_Camera: {fileID: 0}
