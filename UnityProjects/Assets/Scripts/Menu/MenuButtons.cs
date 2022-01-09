@@ -5,18 +5,11 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    int AILevel;
-    int maxPoints;
+    int ticTacToeAIlevel, snakeLevel;
     [SerializeField]
-    int gameID = -1;
+    int gameLocation, backLocation, gameID, maxPoints;
     [SerializeField]
-    int gameLocation;
-    [SerializeField]
-    int backLocation;
-    [SerializeField]
-    bool showScore;
-    [SerializeField]
-    bool resetGameStats;
+    bool showScore, resetGameStats;
 
     void Start() //Default Settings
     {
@@ -27,7 +20,7 @@ public class MenuButtons : MonoBehaviour
             case 1: //TicTacToe
                 if (resetGameStats) //Default settings
                 {
-                    AILevel = TicTacToeStats.AILevel - 1;
+                    ticTacToeAIlevel = TicTacToeStats.AILevel - 1;
                     TicTacToeAILevel();
                     switch (TicTacToeStats.pointsNeedToWin)
                     {
@@ -63,12 +56,6 @@ public class MenuButtons : MonoBehaviour
                 return;
             case 3: //Snake
                 return;
-            case 4: //Chess
-                return;
-            case 5:
-                return;
-            case 6:
-                return;
             default:
                 Error(0);
                 return;
@@ -91,32 +78,32 @@ public class MenuButtons : MonoBehaviour
     //TicTacToe
     public void TicTacToeAILevel()
     {
-        AILevel++;
+        ticTacToeAIlevel++;
 
-        switch (AILevel)
+        switch (ticTacToeAIlevel)
         {
             case 0:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "No AI";
-                TicTacToeStats.AILevel = AILevel;
+                TicTacToeStats.AILevel = ticTacToeAIlevel;
                 return;
             case 1:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - easy";
-                TicTacToeStats.AILevel = AILevel;
+                TicTacToeStats.AILevel = ticTacToeAIlevel;
                 return;
             case 2:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - medium";
-                TicTacToeStats.AILevel = AILevel;
+                TicTacToeStats.AILevel = ticTacToeAIlevel;
                 return;
             case 3:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
-                TicTacToeStats.AILevel = AILevel;
+                TicTacToeStats.AILevel = ticTacToeAIlevel;
                 return;
             case 4:
                 GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - very hard";
-                TicTacToeStats.AILevel = AILevel;
+                TicTacToeStats.AILevel = ticTacToeAIlevel;
                 return;
             default:
-                AILevel = -1;
+                ticTacToeAIlevel = -1;
                 TicTacToeAILevel();
                 return;
         }
@@ -147,12 +134,44 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void OverallScore()
+    void OverallScore()
     {
         TicTacToeData data = SaveSystem.LoadTicTacToe();
         Debug.Log("-------------------");
         for (int i = 0; i < 6; i++) Debug.Log(data.score[i, 1] + " - " + data.score[i, 2] + " last time played : " + data.score[i, 3]);
         Debug.Log("-------------------");
+    }
+
+    //Snake
+    public void SnakeLevel()
+    {
+        snakeLevel++;
+
+        switch (maxPoints)
+        {
+            case 0:
+                GameObject.Find("level").GetComponentInChildren<Text>().text = "easy";
+                SnakeStats.col = 9;
+                SnakeStats.row = 9;
+                SnakeStats.delay = 1f;
+                return;
+            case 1:
+                GameObject.Find("level").GetComponentInChildren<Text>().text = "medium";
+                SnakeStats.col = 11;
+                SnakeStats.row = 11;
+                SnakeStats.delay = .5f;
+                return;
+            case 2:
+                GameObject.Find("level").GetComponentInChildren<Text>().text = "hard";
+                SnakeStats.col = 15;
+                SnakeStats.row = 19;
+                SnakeStats.delay = .2f;
+                return;
+            default:
+                maxPoints = -1;
+                SnakeLevel();
+                return;
+        }
     }
 
     //Error
@@ -165,10 +184,6 @@ public class MenuButtons : MonoBehaviour
                 return;
             case 1:
                 Debug.Log("You dont want to go to this scene");
-                return;
-            case 2:
-                return;
-            case 3:
                 return;
             default:
                 Debug.Log("Wrong ERROR code!");

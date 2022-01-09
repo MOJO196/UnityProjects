@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PongPlayerControll : MonoBehaviour
 {   
-    public float speed;
+    [SerializeField]
+    float speed;
     Rigidbody2D rb;
     void Awake()
     {

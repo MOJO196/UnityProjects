@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class PongBallMovement : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]
+    float speed;
     Rigidbody2D rb;
     void Awake()
     {

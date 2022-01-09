@@ -8,6 +8,8 @@ public class SnakeGame : MonoBehaviour
     int row, col;
     [SerializeField]
     float delay;
+    [SerializeField]
+    Camera cam;
     public static SnakeGame instance;
 
     void Awake()
@@ -15,6 +17,7 @@ public class SnakeGame : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         else instance = this;
 
+        cam.orthographicSize = 20;
         SnakeStats.score = 1;
         SnakeStats.delay = delay;
         SnakeStats.row = row;

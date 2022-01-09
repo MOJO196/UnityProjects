@@ -276,7 +276,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   row: 9
   col: 15
-  delay: 0.5
+  delay: 0.2
+  cam: {fileID: 1645930251}
 --- !u!114 &1657846773
 MonoBehaviour:
   m_ObjectHideFlags: 0

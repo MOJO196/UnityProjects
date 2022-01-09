@@ -6,9 +6,7 @@ using UnityEngine.UI;
 public class TicTacToeLineManager : MonoBehaviour
 {
     [SerializeField]
-    LineRenderer line1;
-    [SerializeField]
-    LineRenderer line2;
+    LineRenderer line1, line2;
     [SerializeField]
     Color color = Color.black;
     [SerializeField]

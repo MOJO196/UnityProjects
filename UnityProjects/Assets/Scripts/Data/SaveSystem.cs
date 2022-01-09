@@ -8,6 +8,7 @@ public static class SaveSystem
 {
     //TicTacToe
     static string tictactoePath = Application.persistentDataPath + "/data.tictactoe";
+
     public static void SaveTicTacToeGame()
     {
         TicTacToeData data = new TicTacToeData();
@@ -37,6 +38,35 @@ public static class SaveSystem
         }
     }
 
+    //Snake
+    static string snakePath = Application.persistentDataPath + "/data.snake";
 
-    //Pong ...
+    public static void SaveSnake()
+    {
+        SnakeData data = new SnakeData();
+
+        BinaryFormatter formatter = new BinaryFormatter();
+        FileStream stream = new FileStream(snakePath, FileMode.Create);
+
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    public static SnakeData LoadSnake()
+    {
+        if (File.Exists(snakePath))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(snakePath, FileMode.Open);
+
+            SnakeData data = formatter.Deserialize(stream) as SnakeData;
+            stream.Close();
+            return data;
+        }
+        else
+        {
+            Debug.Log("ERROR: Data not found at " + snakePath);
+            return null;
+        }
+    }
 }

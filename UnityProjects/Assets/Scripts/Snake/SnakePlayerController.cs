@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SnakePlayerController : MonoBehaviour
 {
-    bool duringMove = false;
+    bool duringMove;
     int nextMoveDirection, lastMoveDirection;
     public void InputUP()
     {
@@ -56,19 +56,19 @@ public class SnakePlayerController : MonoBehaviour
         switch (nextMoveDirection)
         {
             case 1:
-                if (lastMoveDirection == 2 && SnakeStats.score == 1) DOWN();
+                if (lastMoveDirection == 2 && SnakeStats.score != 1) DOWN();
                 else UP();
                 break;
             case 2:
-                if (lastMoveDirection == 1 && SnakeStats.score == 1) UP();
+                if (lastMoveDirection == 1 && SnakeStats.score != 1) UP();
                 else DOWN();
                 break;
             case 3:
-                if (lastMoveDirection == 4 && SnakeStats.score == 1) RIGHT();
+                if (lastMoveDirection == 4 && SnakeStats.score != 1) RIGHT();
                 else LEFT();
                 break;
             case 4:
-                if (lastMoveDirection == 3 && SnakeStats.score == 1) LEFT();
+                if (lastMoveDirection == 3 && SnakeStats.score != 1) LEFT();
                 else RIGHT();
                 break;
         }
