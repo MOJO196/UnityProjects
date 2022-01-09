@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TicTacToePlayerToMove : MonoBehaviour
 {
     [SerializeField]
-    private Image image;
+    Image image;
     public static TicTacToePlayerToMove instance;
     void Awake()
     {
@@ -15,7 +15,7 @@ public class TicTacToePlayerToMove : MonoBehaviour
         else instance = this;
     }
 
-    private void Start()
+    void Start()
     {
         if (!(TicTacToeStats.AILevel == 0)) this.gameObject.SetActive(false);
     }

@@ -21,20 +21,13 @@ public class SnakeGridManager : MonoBehaviour
             {
                 GameObject tile = (GameObject)Instantiate(referenzTile, transform);
 
-                float posX = j * SnakeStats.tileSize;
-                float posY = i * -SnakeStats.tileSize;
-
-                tile.transform.position = new Vector2(posX, posY);
+                tile.transform.position = new Vector2(j, -i);
                 tile.name = (string)(i + ", " + j);
             }
         }
 
         Destroy(referenzTile);
-
-        float gridW = SnakeStats.col * SnakeStats.tileSize;
-        float gridH = SnakeStats.row * SnakeStats.tileSize;
-
-        transform.position = new Vector2(-gridW / 2 + SnakeStats.tileSize / 2, gridH / 2 - SnakeStats.tileSize / 2);
+        transform.position = new Vector2(-SnakeStats.col / 2 + .5f, SnakeStats.row / 2 - .5f);
     }
 
     public void CreateTile(int r, int c, int id)
@@ -61,10 +54,7 @@ public class SnakeGridManager : MonoBehaviour
         GameObject referenzTile = (GameObject)Instantiate(Resources.Load(spriteName));
         GameObject tile = (GameObject)Instantiate(referenzTile, transform);
 
-        float posX = c * SnakeStats.tileSize;
-        float posY = r * -SnakeStats.tileSize;
-
-        tile.transform.position = new Vector2(posX + transform.position[0], posY + transform.position[1]);
+        tile.transform.position = new Vector2(c + transform.position[0], -r + transform.position[1]);
         tile.name = (string)(r + ", " + c);
 
         Destroy(referenzTile);

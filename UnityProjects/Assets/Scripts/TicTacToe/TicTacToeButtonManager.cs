@@ -8,13 +8,13 @@ public class TicTacToeButtonManager : MonoBehaviour
     public Button[] buttons = new Button[9];
     public TicTacToeAI[] AIs = new TicTacToeAI[5];
     public static TicTacToeButtonManager instance;
-    private void Awake()
+    void Awake()
     {
         if (instance != null) Destroy(gameObject);
         else instance = this;
     }
 
-    private void Start()
+    void Start()
     {
         AIMove();
     }
@@ -66,7 +66,7 @@ public class TicTacToeButtonManager : MonoBehaviour
         }
     }
 
-    private void Move(int movePos)
+    void Move(int movePos)
     {
         buttons[movePos].Select();
         buttons[movePos].onClick.Invoke();

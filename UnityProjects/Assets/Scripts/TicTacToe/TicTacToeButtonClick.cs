@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class TicTacToeButtonClick : MonoBehaviour
 {
     [SerializeField]
-    private int buttonPosition;
+    int buttonPosition;
     [SerializeField]
-    private Image buttonImage;
+    Image buttonImage;
     public void ButtonClick()
     {
         if (TicTacToeStats.buttonUsed[buttonPosition - 1] == 0 && TicTacToeStats.gameRunning && !TicTacToeStats.duringMove)

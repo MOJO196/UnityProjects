@@ -5,11 +5,9 @@ using UnityEngine;
 public class SnakeGame : MonoBehaviour
 {
     [SerializeField]
-    private int row;
+    int row, col;
     [SerializeField]
-    private int col;
-    [SerializeField]
-    private float tileSize;
+    float delay;
     public static SnakeGame instance;
 
     void Awake()
@@ -17,9 +15,10 @@ public class SnakeGame : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         else instance = this;
 
+        SnakeStats.score = 1;
+        SnakeStats.delay = delay;
         SnakeStats.row = row;
         SnakeStats.col = col;
-        SnakeStats.tileSize = tileSize;
         SnakeStats.gameState = new int[SnakeStats.row, SnakeStats.col];
     }
 
@@ -40,13 +39,11 @@ public class SnakeGame : MonoBehaviour
         SnakeGridManager.instance.CreateGrid();
         SatrtingPosition();
         SummonFruit();
-        SnakeStats.gameRunning = true;
+        SnakeStats.canRun = true;
     }
 
     public void SummonFruit()
     {
-        SnakeStats.score++;
-
         for (; ; )
         {
             int fruitRow = Random.Range(0, SnakeStats.row);
@@ -64,7 +61,9 @@ public class SnakeGame : MonoBehaviour
 
     public void GameOver()
     {
+        Debug.Log("GameOver");
         SnakeStats.gameRunning = false;
+        SnakeStats.canRun = false;
     }
 
     public void UpdatePlayerPosition(int row, int col)

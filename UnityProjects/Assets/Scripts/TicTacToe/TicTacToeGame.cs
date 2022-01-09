@@ -5,8 +5,8 @@ using UnityEngine;
 public class TicTacToeGame : MonoBehaviour
 {
     [SerializeField]
-    private Camera cam;
-    private int[][] possibleWins;
+    Camera cam;
+    int[][] possibleWins;
     public static TicTacToeGame instance;
 
     void Awake()
@@ -94,14 +94,14 @@ public class TicTacToeGame : MonoBehaviour
         }
     }
 
-    private void Draw()
+    void Draw()
     {
         Debug.Log("Draw");
         TicTacToeStats.gameRunning = false;
         //Draw overlay
     }
 
-    private void PlayerWon(int player)
+    void PlayerWon(int player)
     {
         TicTacToeStats.gameRunning = false;
 

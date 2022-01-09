@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class TicTacToeLineManager : MonoBehaviour
 {
     [SerializeField]
-    private LineRenderer line1;
+    LineRenderer line1;
     [SerializeField]
-    private LineRenderer line2;
+    LineRenderer line2;
     [SerializeField]
-    private Color color = Color.black;
+    Color color = Color.black;
     [SerializeField]
-    private float width = .25f;
-    private float alpha = 1f;
-    private int positionCount = 2;
+    float width = .25f;
+    float alpha = 1f;
+    int positionCount = 2;
     public static TicTacToeLineManager instance;
 
     void Awake()
@@ -37,7 +37,7 @@ public class TicTacToeLineManager : MonoBehaviour
         else DrawLine2(obj1, obj2);
     }
 
-    private void DrawLine1(Button obj1, Button obj2)
+    void DrawLine1(Button obj1, Button obj2)
     {
         if (obj1 != null && obj2 != null)
         {
@@ -53,7 +53,7 @@ public class TicTacToeLineManager : MonoBehaviour
         }
     }
 
-    private void DrawLine2(Button obj1, Button obj2)
+    void DrawLine2(Button obj1, Button obj2)
     {
         if (obj1 != null && obj2 != null)
         {

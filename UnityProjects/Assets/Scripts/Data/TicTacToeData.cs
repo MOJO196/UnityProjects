@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class TicTacToeData
 {
-    private bool resetData = false; //set true to reset all data
+    bool resetData = false; //set true to reset all data
     public object[,] score; //[AILevel, player1Score, player2Score, time]
 
     public TicTacToeData()

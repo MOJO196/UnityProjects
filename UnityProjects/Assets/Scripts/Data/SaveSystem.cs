@@ -7,7 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     //TicTacToe
-    private static string tictactoePath = Application.persistentDataPath + "/data.tictactoe";
+    static string tictactoePath = Application.persistentDataPath + "/data.tictactoe";
     public static void SaveTicTacToeGame()
     {
         TicTacToeData data = new TicTacToeData();

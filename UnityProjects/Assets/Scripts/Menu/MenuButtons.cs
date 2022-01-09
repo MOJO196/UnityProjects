@@ -5,18 +5,18 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    private int AILevel;
-    private int maxPoints;
+    int AILevel;
+    int maxPoints;
     [SerializeField]
-    private int gameID = -1;
+    int gameID = -1;
     [SerializeField]
-    private int gameLocation;
+    int gameLocation;
     [SerializeField]
-    private int backLocation;
+    int backLocation;
     [SerializeField]
-    private bool showScore;
+    bool showScore;
     [SerializeField]
-    private bool resetGameStats;
+    bool resetGameStats;
 
     void Start() //Default Settings
     {
@@ -156,7 +156,7 @@ public class MenuButtons : MonoBehaviour
     }
 
     //Error
-    private void Error(int code)
+    void Error(int code)
     {
         switch (code)
         {

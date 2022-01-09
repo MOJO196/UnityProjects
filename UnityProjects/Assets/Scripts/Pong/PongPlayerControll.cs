@@ -5,8 +5,8 @@ using UnityEngine.InputSystem;
 public class PongPlayerControll : MonoBehaviour
 {   
     public float speed;
-    private Rigidbody2D rb;
-    private void Awake()
+    Rigidbody2D rb;
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }

@@ -17,8 +17,8 @@ public class PongScoreManager : MonoBehaviour
         }
     }
 
-    private int scorePlayer1;
-    private int scorePlayer2;
+    int scorePlayer1;
+    int scorePlayer2;
 
     public bool Score(int player)
     {
@@ -28,7 +28,8 @@ public class PongScoreManager : MonoBehaviour
         return CheckIfPlayerWon();
     }
 
-    private bool CheckIfPlayerWon()
+    
+    bool CheckIfPlayerWon()
     {
         if (scorePlayer1 >= 5)
         {

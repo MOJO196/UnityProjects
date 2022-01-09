@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TicTacToeGameController : MonoBehaviour
 {
-    private bool canEnd = true;
-    private bool canRestart = true;
+    bool canEnd = true;
+    bool canRestart = true;
     public static TicTacToeGameController instance;
     void Awake()
     {

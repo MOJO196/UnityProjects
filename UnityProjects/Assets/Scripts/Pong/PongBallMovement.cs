@@ -7,18 +7,18 @@ using UnityEngine;
 public class PongBallMovement : MonoBehaviour
 {
     public float speed;
-    private Rigidbody2D rb;
-    private void Awake()
+    Rigidbody2D rb;
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Start()
+    void Start()
     {
         rb.velocity = new Vector2(speed, Random.Range(-1,1)*speed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {                
         switch(other.name)
         {

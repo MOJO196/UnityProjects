@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   row: 9
-  col: 11
-  tileSize: 1
+  col: 15
+  delay: 0.5
 --- !u!114 &1657846773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657846770}
-        m_MethodName: UP
+        m_MethodName: InputUP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -345,7 +345,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657846770}
-        m_MethodName: DOWN
+        m_MethodName: InputDOWN
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -360,7 +360,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657846770}
-        m_MethodName: LEFT
+        m_MethodName: InputLEFT
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -375,7 +375,7 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1657846770}
-        m_MethodName: RIGHT
+        m_MethodName: InputRIGHT
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
