@@ -142,38 +142,6 @@ public class MenuButtons : MonoBehaviour
         Debug.Log("-------------------");
     }
 
-    //Snake
-    public void SnakeLevel()
-    {
-        snakeLevel++;
-
-        switch (maxPoints)
-        {
-            case 0:
-                GameObject.Find("level").GetComponentInChildren<Text>().text = "easy";
-                SnakeStats.col = 9;
-                SnakeStats.row = 9;
-                SnakeStats.delay = 1f;
-                return;
-            case 1:
-                GameObject.Find("level").GetComponentInChildren<Text>().text = "medium";
-                SnakeStats.col = 11;
-                SnakeStats.row = 11;
-                SnakeStats.delay = .5f;
-                return;
-            case 2:
-                GameObject.Find("level").GetComponentInChildren<Text>().text = "hard";
-                SnakeStats.col = 15;
-                SnakeStats.row = 19;
-                SnakeStats.delay = .2f;
-                return;
-            default:
-                maxPoints = -1;
-                SnakeLevel();
-                return;
-        }
-    }
-
     //Error
     void Error(int code)
     {

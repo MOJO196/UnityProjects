@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TicTacToe/TicTacToeEndScreen.unity
     guid: d7df52257c4103f449e1eb5c409060ef
+  - enabled: 1
+    path: Assets/Scenes/Snake/SnakeMenu.unity
+    guid: 3d9b44adb5375dc49810d14be5711266
+  - enabled: 1
+    path: Assets/Scenes/Snake/Snake.unity
+    guid: b20ee26d2eb095441ae929fd3da11d0d
+  - enabled: 1
+    path: Assets/Scenes/Snake/SnakeEndScene.unity
+    guid: c5f0ec6b338906c41a55c06a085df926
   m_configObjects: {}

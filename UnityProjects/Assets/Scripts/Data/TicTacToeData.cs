@@ -17,7 +17,7 @@ public class TicTacToeData
         }
         else
         {
-            score = new object[6,4]
+            score = new object[6, 4]
             {
                 {0, 0, 0, null},
                 {1, 0, 0, null},
@@ -28,8 +28,8 @@ public class TicTacToeData
             };
         }
 
-        score[TicTacToeStats.AILevel, 1] = TicTacToeStats.player1Score + (int) score[TicTacToeStats.AILevel, 1];
-        score[TicTacToeStats.AILevel, 2] = TicTacToeStats.player2Score + (int) score[TicTacToeStats.AILevel, 2];
+        score[TicTacToeStats.AILevel, 1] = TicTacToeStats.player1Score + (int)score[TicTacToeStats.AILevel, 1];
+        score[TicTacToeStats.AILevel, 2] = TicTacToeStats.player2Score + (int)score[TicTacToeStats.AILevel, 2];
         score[TicTacToeStats.AILevel, 3] = System.DateTime.Now.ToString("dd/MM/ HH:mm:ss");
     }
 }

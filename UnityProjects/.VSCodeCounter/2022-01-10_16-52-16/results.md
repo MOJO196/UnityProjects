@@ -1,27 +1,28 @@
 # Summary
 
-Date : 2022-01-09 01:34:16
+Date : 2022-01-10 16:52:16
 
 Directory c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts
 
-Total : 24 files,  1223 codes, 23 comments, 178 blanks, all 1424 lines
+Total : 32 files,  1465 codes, 21 comments, 215 blanks, all 1701 lines
 
 [details](details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| C# | 24 | 1,223 | 23 | 178 | 1,424 |
+| C# | 32 | 1,465 | 21 | 215 | 1,701 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 24 | 1,223 | 23 | 178 | 1,424 |
-| Data | 2 | 65 | 2 | 12 | 79 |
-| Menu | 3 | 200 | 4 | 21 | 225 |
-| Pong | 3 | 116 | 5 | 17 | 138 |
-| Snake | 4 | 288 | 0 | 44 | 332 |
-| TicTacToe | 12 | 554 | 12 | 84 | 650 |
+| . | 32 | 1,465 | 21 | 215 | 1,701 |
+| Data | 3 | 120 | 2 | 21 | 143 |
+| Menu | 10 | 356 | 4 | 45 | 405 |
+| Menu\Buttons | 7 | 173 | 0 | 24 | 197 |
+| Pong | 3 | 118 | 5 | 18 | 141 |
+| Snake | 4 | 328 | 1 | 49 | 378 |
+| TicTacToe | 12 | 543 | 9 | 82 | 634 |
 | TicTacToe\TicTacToeAIs | 5 | 167 | 0 | 25 | 192 |
 
 [details](details.md)

@@ -1,0 +1,63 @@
+Date : 2022-01-10 16:52:16
+Directory : c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts
+Total : 32 files,  1465 codes, 21 comments, 215 blanks, all 1701 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         32 |      1,465 |         21 |        215 |      1,701 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                      |         32 |      1,465 |         21 |        215 |      1,701 |
+| Data                                                                                                                   |          3 |        120 |          2 |         21 |        143 |
+| Menu                                                                                                                   |         10 |        356 |          4 |         45 |        405 |
+| Menu\Buttons                                                                                                           |          7 |        173 |          0 |         24 |        197 |
+| Pong                                                                                                                   |          3 |        118 |          5 |         18 |        141 |
+| Snake                                                                                                                  |          4 |        328 |          1 |         49 |        378 |
+| TicTacToe                                                                                                              |         12 |        543 |          9 |         82 |        634 |
+| TicTacToe\TicTacToeAIs                                                                                                 |          5 |        167 |          0 |         25 |        192 |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                               | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Data\SaveSystem.cs                          | C#       |         58 |          2 |         13 |         73 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Data\SnakeData.cs                           | C#       |         30 |          0 |          4 |         34 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Data\TicTacToeData.cs                       | C#       |         32 |          0 |          4 |         36 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\BackButton.cs                  | C#       |         12 |          0 |          3 |         15 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\Buttons.cs                     | C#       |         11 |          0 |          2 |         13 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\SnakeLevelButton.cs            | C#       |         43 |          0 |          4 |         47 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\SnakePlayButton.cs             | C#       |         20 |          0 |          4 |         24 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\TicTacToeAIButton.cs           | C#       |         43 |          0 |          3 |         46 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\TicTacToeMaxPointsButton.cs    | C#       |         31 |          0 |          4 |         35 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\Buttons\TicTacToePlayButton.cs         | C#       |         13 |          0 |          4 |         17 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\MenuButtons.cs                         | C#       |        145 |          4 |         13 |        162 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\SceneData.cs                           | C#       |          4 |          0 |          1 |          5 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Menu\SceneLoader.cs                         | C#       |         34 |          0 |          7 |         41 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Pong\PongBallMovement.cs                    | C#       |         51 |          2 |          7 |         60 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Pong\PongPlayerControll.cs                  | C#       |         24 |          0 |          3 |         27 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Pong\PongScoreManager.cs                    | C#       |         43 |          3 |          8 |         54 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Snake\SnakeGame.cs                          | C#       |         62 |          1 |         11 |         74 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Snake\SnakeGridManager.cs                   | C#       |         52 |          0 |         11 |         63 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Snake\SnakePlayerController.cs              | C#       |        206 |          0 |         26 |        232 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\Snake\SnakeStats.cs                         | C#       |          8 |          0 |          1 |          9 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAI.cs       | C#       |         12 |          0 |          2 |         14 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel1.cs | C#       |         15 |          0 |          2 |         17 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel2.cs | C#       |         35 |          0 |          5 |         40 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel3.cs | C#       |         58 |          0 |          9 |         67 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeAIs\TicTacToeAILevel4.cs | C#       |         47 |          0 |          7 |         54 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeButtonClick.cs           | C#       |         36 |          0 |          5 |         41 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeButtonManager.cs         | C#       |         65 |          1 |          9 |         75 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeGame.cs                  | C#       |        116 |          8 |         14 |        138 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeGameController.cs        | C#       |         59 |          0 |         11 |         70 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeLineManager.cs           | C#       |         67 |          0 |         14 |         81 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToePlayerToMove.cs          | C#       |         25 |          0 |          4 |         29 |
+| c:\Users\mvhet\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts\TicTacToe\TicTacToeStats.cs                 | C#       |          8 |          0 |          0 |          8 |
+| Total                                                                                                                  |          |      1,465 |         21 |        215 |      1,701 |
++------------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

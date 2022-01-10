@@ -5,10 +5,6 @@ using UnityEngine;
 public class SnakeGame : MonoBehaviour
 {
     [SerializeField]
-    int row, col;
-    [SerializeField]
-    float delay;
-    [SerializeField]
     Camera cam;
     public static SnakeGame instance;
 
@@ -17,12 +13,7 @@ public class SnakeGame : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         else instance = this;
 
-        //will be gone soon
         SnakeStats.score = 1;
-        SnakeStats.delay = delay;
-        SnakeStats.row = row;
-        SnakeStats.col = col;
-
         cam.orthographicSize = SnakeStats.camSize;
         SnakeStats.gameState = new int[SnakeStats.row, SnakeStats.col];
     }
@@ -66,9 +57,10 @@ public class SnakeGame : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("GameOver");
         SnakeStats.gameRunning = false;
         SnakeStats.canRun = false;
+        //SaveSystem.SaveSnake(); //isnt working
+        SceneLoader.instance.NextScene();
     }
 
     public void UpdatePlayerPosition(int row, int col)

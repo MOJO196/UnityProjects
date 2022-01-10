@@ -3,28 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class SnakeData : MonoBehaviour
+public class SnakeData
 {
-    bool resetData = false; //set true to reset all data
+    bool resetData = true; //set true to reset all data
     public object[,] score; //level, totalscore, avg. Score, times played, last time played
 
     public SnakeData()
     {
-        if (SaveSystem.LoadSnake() != null || !resetData)
+        if (SaveSystem.LoadSnake() != null && !resetData)
         {
             SnakeData oldData = SaveSystem.LoadSnake();
             score = oldData.score;
         }
         else
         {
-            score = new object[6, 5]
+            score = new object[3, 5]
             {
                 {0, 0, 0, 0, null},
                 {1, 0, 0, 0, null},
-                {2, 0, 0, 0, null},
-                {3, 0, 0, 0, null},
-                {4, 0, 0, 0, null},
-                {5, 0, 0, 0, null}
+                {2, 0, 0, 0, null}
             };
         }
 
