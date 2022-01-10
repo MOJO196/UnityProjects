@@ -4,5 +4,5 @@
     public static int[] playerPos = new int[2];
     public static bool gameRunning, canRun;
     public static int row, col, score, level;
-    public static float delay;
+    public static float delay, camSize;
 }

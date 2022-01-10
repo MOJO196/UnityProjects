@@ -17,11 +17,13 @@ public class SnakeGame : MonoBehaviour
         if (instance != null) Destroy(gameObject);
         else instance = this;
 
-        cam.orthographicSize = 20;
+        //will be gone soon
         SnakeStats.score = 1;
         SnakeStats.delay = delay;
         SnakeStats.row = row;
         SnakeStats.col = col;
+
+        cam.orthographicSize = SnakeStats.camSize;
         SnakeStats.gameState = new int[SnakeStats.row, SnakeStats.col];
     }
 
@@ -37,7 +39,7 @@ public class SnakeGame : MonoBehaviour
         UpdatePlayerPosition(startingRow, startingCol);
     }
 
-    public void CreateNewGame()
+    void CreateNewGame()
     {
         SnakeGridManager.instance.CreateGrid();
         SatrtingPosition();
