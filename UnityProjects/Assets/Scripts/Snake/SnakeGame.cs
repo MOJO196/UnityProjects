@@ -59,7 +59,7 @@ public class SnakeGame : MonoBehaviour
     {
         SnakeStats.gameRunning = false;
         SnakeStats.canRun = false;
-        //SaveSystem.SaveSnake(); //isnt working
+        SaveSystem.SaveSnake(); //isnt working
         SceneLoader.instance.NextScene();
     }
 

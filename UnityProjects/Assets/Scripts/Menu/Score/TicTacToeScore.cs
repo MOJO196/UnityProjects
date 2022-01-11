@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class TicTacToeScore : Score
 {
+    [SerializeField]
+    GameObject scoreObj;
+
     void Awake()
     {
         SetScore();
@@ -12,6 +15,6 @@ public class TicTacToeScore : Score
 
     protected override void SetScore()
     {
-        base.SetScore();
+        scoreObj.GetComponentInChildren<Text>().text = "Score : " + TicTacToeStats.player1Score.ToString() + " - " + TicTacToeStats.player2Score.ToString();
     }
 }

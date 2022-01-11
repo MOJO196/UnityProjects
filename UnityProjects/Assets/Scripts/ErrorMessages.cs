@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class ErrorMessages : MonoBehaviour
 {
+    public static ErrorMessages instance;
+
+    void Awake()
+    {
+        if (instance != null) Destroy(gameObject);
+        else instance = this;    
+    }
+
     public void TicTacToeError(int message)
     {
         switch (message)

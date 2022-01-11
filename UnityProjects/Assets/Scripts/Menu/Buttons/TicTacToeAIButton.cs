@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class TicTacToeAIButton : Buttons
 {
+    [SerializeField]
+    GameObject levelButton;
     int level;
     public override void OnClick()
     {
@@ -13,11 +15,11 @@ public class TicTacToeAIButton : Buttons
         switch (level)
         {
             case 0:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "No AI";
+                levelButton.GetComponentInChildren<Text>().text = "No AI";
                 TicTacToeStats.AILevel = level;
                 return;
             case 1:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - easy";
+                levelButton.GetComponentInChildren<Text>().text = "AI Level - easy";
                 TicTacToeStats.AILevel = level;
                 return;
             case 2:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PongPlayerControll : MonoBehaviour
+public class PongPlayerController : MonoBehaviour
 {   
     [SerializeField]
     float speed;

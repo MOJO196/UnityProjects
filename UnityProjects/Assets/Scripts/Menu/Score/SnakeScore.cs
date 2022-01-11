@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class SnakeScoreButton : Score
 {
+    [SerializeField]
+    GameObject scoreObj;
+    
     void Awake()
     {
         SetScore();
@@ -12,6 +15,6 @@ public class SnakeScoreButton : Score
 
     protected override void SetScore()
     {
-        base.SetScore();
+        scoreObj.GetComponentInChildren<Text>().text = "Score : " + SnakeStats.score.ToString() + "Level : " + SnakeStats.level.ToString();
     }
 }

@@ -9,7 +9,7 @@ public static class SaveSystem
     //TicTacToe
     static string tictactoePath = Application.persistentDataPath + "/data.tictactoe";
 
-    public static void SaveTicTacToeGame()
+    public static void SaveTicTacToe()
     {
         TicTacToeData data = new TicTacToeData();
 
