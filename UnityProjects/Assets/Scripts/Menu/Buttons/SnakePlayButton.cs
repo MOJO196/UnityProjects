@@ -9,10 +9,10 @@ public class SnakePlayButton : Buttons
 
     public override void OnClick()
     {
-        if (SnakeStats.col == 0)
+        if (SnakeStats.row == 0)
         {
-            SnakeStats.col = 9;
             SnakeStats.row = 9;
+            SnakeStats.col = 11;
             SnakeStats.delay = 1f;
             SnakeStats.level = 0;
             SnakeStats.camSize = 5;
