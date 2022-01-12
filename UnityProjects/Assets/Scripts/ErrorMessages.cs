@@ -47,4 +47,17 @@ public class ErrorMessages : MonoBehaviour
                 return;
         }
     }
+
+    public void ChessError(int message)
+    {
+        switch (message)
+        {
+            case 0:
+                Debug.LogError("No GameObject selected!");
+                return;
+            default:
+                Debug.Log("Unknown error message!");
+                return;
+        }
+    }
 }

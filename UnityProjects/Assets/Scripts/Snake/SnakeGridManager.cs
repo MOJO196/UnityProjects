@@ -5,6 +5,7 @@ using UnityEngine;
 public class SnakeGridManager : MonoBehaviour
 {
     public static SnakeGridManager instance;
+    
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
