@@ -1,0 +1,41 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[System.Serializable]
+public class ChessMove
+{
+    public object[] move;
+
+    ChessMove(int firstRow, int firstCol, int secondRow, int secondCol)
+    {
+        move = new object[6]
+        {
+            firstRow,
+            firstCol,
+            secondRow,
+            secondCol,
+            ChessStats.gameState[firstRow, firstCol],
+            ChessStats.gameState[secondRow, secondCol]
+        };
+    }
+}
+
+[System.Serializable]
+public class ChessMoves
+{
+    public ChessMoves[] moves;
+    int moveID;
+
+    public void AddToMoves(ChessMoves move)
+    {
+        moves[moveID] = move;
+        moveID++;
+    }
+
+    public void DeleteMove()
+    {
+        moveID--;
+        moves[moveID] = null;
+    }
+}

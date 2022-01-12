@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ChessGridManager : MonoBehaviour
 {
@@ -48,8 +49,8 @@ public class ChessGridManager : MonoBehaviour
 
     void Background()
     {
-        GameObject referenzTile1 = (GameObject)Instantiate(Resources.Load("Snake0"));
-        GameObject referenzTile2 = (GameObject)Instantiate(Resources.Load("Snake2"));
+        GameObject referenzTile1 = (GameObject)Instantiate(Resources.Load("ChessBackground0"));
+        GameObject referenzTile2 = (GameObject)Instantiate(Resources.Load("ChessBackground1"));
         bool bool1 = true;
         bool bool2 = true;
 
@@ -67,6 +68,11 @@ public class ChessGridManager : MonoBehaviour
 
                 tile.transform.position = new Vector3(c + transform.position[0], -r + transform.position[1], transform.position[2] + 1f);
                 tile.name = (string)("Background(" + r + ", " + c + ")");
+
+                tile.AddComponent(typeof(BoxCollider2D));
+                tile.AddComponent<ChessOnClick>();
+                tile.GetComponent<ChessOnClick>().row = r;
+                tile.GetComponent<ChessOnClick>().col = c;
             }
         }
 
@@ -77,7 +83,7 @@ public class ChessGridManager : MonoBehaviour
     void DrawPawns(int r, bool white)
     {
         GameObject referenzTile;
-        if (white) referenzTile = (GameObject)Instantiate(Resources.Load("Snake1"));
+        if (white) referenzTile = (GameObject)Instantiate(Resources.Load("ChessWP"));
         else referenzTile = (GameObject)Instantiate(Resources.Load("ChessBP"));
 
         for (int c = 0; c < ChessStats.col; c++)
@@ -98,26 +104,32 @@ public class ChessGridManager : MonoBehaviour
 
         if (tileID == 0)
         {
-            referenzTile = (GameObject)Instantiate(Resources.Load("Snake0"));
+            try
+            {
+                //delete tile
+                Destroy(GameObject.Find((string)(r + ", " + c)));
+            }
+            catch { } //do nothing if tile not found
+            return;
         }
         else if (white)
         {
             switch (tileID)
             {
                 case 1:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWR"));
                     break;
                 case 2:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWN"));
                     break;
                 case 3:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWB"));
                     break;
                 case 4:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWK"));
                     break;
                 case 5:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWQ"));
                     break;
                 default:
                     ErrorMessages.instance.ChessError(0);
@@ -129,19 +141,19 @@ public class ChessGridManager : MonoBehaviour
             switch (tileID)
             {
                 case 1:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBR"));
                     break;
                 case 2:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBN"));
                     break;
                 case 3:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBB"));
                     break;
                 case 4:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBK"));
                     break;
                 case 5:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Snake2"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBQ"));
                     break;
                 default:
                     ErrorMessages.instance.ChessError(0);
@@ -153,7 +165,6 @@ public class ChessGridManager : MonoBehaviour
 
         tile.transform.position = new Vector2(c + transform.position[0], -r + transform.position[1]);
         tile.name = (string)(r + ", " + c);
-
         Destroy(referenzTile);
     }
 }
