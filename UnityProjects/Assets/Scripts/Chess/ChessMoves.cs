@@ -5,10 +5,15 @@ using UnityEngine;
 [System.Serializable]
 public class ChessMoves
 {
-    public ChessMoves[] moves;
+    public ChessMove[] moves;
     int moveID;
 
-    public void AddToMoves(ChessMoves move)
+    public ChessMoves()
+    {
+        moves = new ChessMove[500];
+    }
+
+    public void AddToMoves(ChessMove move)
     {
         moves[moveID] = move;
         moveID++;

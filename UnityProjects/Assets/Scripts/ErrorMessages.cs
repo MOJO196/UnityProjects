@@ -55,6 +55,9 @@ public class ErrorMessages : MonoBehaviour
             case 0:
                 Debug.LogError("No GameObject selected!");
                 return;
+            case 1:
+                Debug.LogError("Wrong pice!");
+                return;
             default:
                 Debug.Log("Unknown error message!");
                 return;
