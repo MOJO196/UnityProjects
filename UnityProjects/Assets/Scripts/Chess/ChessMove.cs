@@ -7,7 +7,7 @@ public class ChessMove
 {
     public object[] move;
 
-    ChessMove(int firstRow, int firstCol, int secondRow, int secondCol)
+    public ChessMove(int firstRow, int firstCol, int secondRow, int secondCol)
     {
         move = new object[6]
         {

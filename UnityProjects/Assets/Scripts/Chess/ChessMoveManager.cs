@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChessMoveManager : MonoBehaviour
 {
+    int firstRow = -1, firstCol = -1, secondRow = -1, secondCol = -1, moveID;
     public ChessMoves moveLog;
     public static ChessMoveManager instance;
 
@@ -18,87 +19,120 @@ public class ChessMoveManager : MonoBehaviour
         moveLog = new ChessMoves();
     }
 
+    public void NewMove(int row, int col)
+    {
+        if (firstRow == -1)
+        {
+            firstRow = row;
+            firstCol = col;
+        }
+        else
+        {
+            secondRow = row;
+            secondCol = col;
+        }
+
+        if (firstRow != -1 && secondRow != -1)
+        {
+            ChessMove newMove = new ChessMove(firstRow, firstCol, secondRow, secondCol);
+            moveID++;
+
+            firstRow = -1;
+            firstCol = -1;
+            secondRow = -1;
+            secondCol = -1;
+
+            MakeMove(newMove);
+            return;
+        }
+    }
+
     public void MakeMove(ChessMove move)
     {
-        if ((string)move.move[4] == "--")
+        if ((ChessGame.piece)move.move[4] == ChessGame.piece.eS)
         {
             return;
         }
         else if (ChessStats.whiteToMove)
         {
-            if ((string)move.move[4] == "WP")
+            switch ((ChessGame.piece)move.move[4])
             {
-
-            }
-            else if ((string)move.move[4] == "WR")
-            {
-
-            }
-            else if ((string)move.move[4] == "WN")
-            {
-
-            }
-            else if ((string)move.move[4] == "WB")
-            {
-
-            }
-            else if ((string)move.move[4] == "WQ")
-            {
-
-            }
-            else if ((string)move.move[4] == "WK")
-            {
-
+                case ChessGame.piece.wP:
+                    PawnMoves(move);
+                    break;
+                case ChessGame.piece.wR:
+                    break;
+                case ChessGame.piece.wN:
+                    break;
+                case ChessGame.piece.wB:
+                    break;
+                case ChessGame.piece.wQ:
+                    break;
+                case ChessGame.piece.wK:
+                    break;
             }
         }
         else
         {
-            if ((string)move.move[4] == "BP")
+            switch ((ChessGame.piece)move.move[4])
             {
-
-            }
-            else if ((string)move.move[4] == "BR")
-            {
-
-            }
-            else if ((string)move.move[4] == "BN")
-            {
-
-            }
-            else if ((string)move.move[4] == "BB")
-            {
-
-            }
-            else if ((string)move.move[4] == "BQ")
-            {
-
-            }
-            else if ((string)move.move[4] == "BK")
-            {
-
+                case ChessGame.piece.bP:
+                    PawnMoves(move);
+                    break;
+                case ChessGame.piece.bR:
+                    break;
+                case ChessGame.piece.bN:
+                    break;
+                case ChessGame.piece.bB:
+                    break;
+                case ChessGame.piece.bQ:
+                    break;
+                case ChessGame.piece.bK:
+                    break;
             }
         }
     }
 
-    int PawnMoves(int firstRow, int firstCol, int secondRow, int secondCol)
+    int PawnMoves(ChessMove move)
     {
-        if (ChessStats.gameState[firstRow, firstCol] == "WP")
+        if (ChessStats.gameState[(int)move.move[0], (int)move.move[1]] == ChessGame.piece.wP)
         {
-            if (ChessStats.gameState[firstRow - 1, firstCol] == "--")
+            if (ChessStats.gameState[(int)move.move[0] - 1, (int)move.move[1]] == ChessGame.piece.eS)
             {
-                if (firstRow == secondRow - 1)
+                if ((int)move.move[0] - 1 == (int)move.move[2])
                 {
-
+                    DoMove(move);
+                    return 0;
                 }
-                else if (ChessStats.gameState[firstRow - 2, firstCol] == "--" && firstRow == secondRow - 2 && firstRow == 6)
+                else if (ChessStats.gameState[(int)move.move[0] - 2, (int)move.move[1]] == ChessGame.piece.eS)
                 {
+                    if ((int)move.move[0] == (int)move.move[2] - 2)
+                    {
+                        if ((int)move.move[0] == 6)
+                        {
+                            DoMove(move);
+                            return 0;
+                        }
+                    }
 
                 }
             }
         }
-        else if (ChessStats.gameState[firstRow, firstCol] == "BP")
+        else if (ChessStats.gameState[(int)move.move[0], (int)move.move[1]] == ChessGame.piece.bP)
         {
-
+            if (ChessStats.gameState[(int)move.move[0] + 1, (int)move.move[1]] == ChessGame.piece.eS)
+            {
+                if ((int)move.move[0] - 1 == (int)move.move[2])
+                {
+                    DoMove(move);
+                    return 0;
+                }
+                else if (ChessStats.gameState[(int)move.move[0] + 2, (int)move.move[1]] == ChessGame.piece.eS && (int)move.move[0] == (int)move.move[2] + 2 && (int)move.move[0] == 6)
+                {
+                    DoMove(move);
+                    return 0;
+                }
+            }
         }
         else
         {
@@ -106,11 +140,14 @@ public class ChessMoveManager : MonoBehaviour
             return -1;
         }
 
-        return 0;
+        return -1;
     }
 
     void DoMove(ChessMove move)
     {
+        ChessGridManager.instance.DrawTile((int)move.move[4], ChessStats.whiteToMove, (int)move.move[0], (int)move.move[1]);
+        ChessGridManager.instance.DrawTile(0, ChessStats.whiteToMove, (int)move.move[2], (int)move.move[3]);
+        moveLog.AddToMoves(move);
         ChessStats.whiteToMove = !ChessStats.whiteToMove;
     }
 }

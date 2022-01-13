@@ -11,5 +11,6 @@ public class ChessOnClick : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log(row + ", " + col);
+        ChessMoveManager.instance.NewMove(row, col);
     }
 }

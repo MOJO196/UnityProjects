@@ -6,6 +6,23 @@ public class ChessGame : MonoBehaviour
 {
     public static ChessGame instance;
 
+    public enum piece
+    {
+        eS,
+        wP,
+        wR,
+        wN,
+        wB,
+        wQ,
+        wK,
+        bP,
+        bR,
+        bN,
+        bB,
+        bQ,
+        bK
+    }
+
     void Awake()
     {
         if (instance != null) Destroy(gameObject);
@@ -27,16 +44,16 @@ public class ChessGame : MonoBehaviour
 
     void StartPosition()
     {
-        ChessStats.gameState = new string[ChessStats.row, ChessStats.col]
+        ChessStats.gameState = new piece[ChessStats.row, ChessStats.col]
         {
-            {"BR", "BN", "BB", "BK", "BQ", "BB", "BN", "BR"},
-            {"BP", "BP", "BP", "BP", "BP", "BP", "BP", "BP"},
-            {"--", "--", "--", "--", "--", "--", "--", "--"},
-            {"--", "--", "--", "--", "--", "--", "--", "--"},
-            {"--", "--", "--", "--", "--", "--", "--", "--"},
-            {"--", "--", "--", "--", "--", "--", "--", "--"},
-            {"WP", "WP", "WP", "WP", "WP", "WP", "WP", "WP"},
-            {"WR", "WN", "WB", "WK", "WQ", "WB", "WN", "WR"}
+            {piece.bR, piece.bN, piece.bB, piece.bQ, piece.bK, piece.bB, piece.bN, piece.bR},
+            {piece.bP, piece.bP, piece.bP, piece.bP, piece.bP, piece.bP, piece.bP, piece.bP},
+            {piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS},
+            {piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS},
+            {piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS},
+            {piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS, piece.eS},
+            {piece.wP, piece.wP, piece.wP, piece.wP, piece.wP, piece.wP, piece.wP, piece.wP},
+            {piece.wR, piece.wN, piece.wB, piece.wQ, piece.wK, piece.wB, piece.wN, piece.wR}
         };
     }
 }
