@@ -49,8 +49,8 @@ public class ChessGridManager : MonoBehaviour
 
     void Background()
     {
-        GameObject referenzTile1 = (GameObject)Instantiate(Resources.Load("ChessBackground0"));
-        GameObject referenzTile2 = (GameObject)Instantiate(Resources.Load("ChessBackground1"));
+        GameObject referenzTile1 = (GameObject)Instantiate(Resources.Load("Chess/ChessBackground0"));
+        GameObject referenzTile2 = (GameObject)Instantiate(Resources.Load("Chess/ChessBackground1"));
         bool bool1 = true;
         bool bool2 = true;
 
@@ -83,8 +83,8 @@ public class ChessGridManager : MonoBehaviour
     void DrawPawns(int r, bool white)
     {
         GameObject referenzTile;
-        if (white) referenzTile = (GameObject)Instantiate(Resources.Load("ChessWP"));
-        else referenzTile = (GameObject)Instantiate(Resources.Load("ChessBP"));
+        if (white) referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWP"));
+        else referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBP"));
 
         for (int c = 0; c < ChessStats.col; c++)
         {
@@ -117,19 +117,19 @@ public class ChessGridManager : MonoBehaviour
             switch (tileID)
             {
                 case 1:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWR"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWR"));
                     break;
                 case 2:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWN"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWN"));
                     break;
                 case 3:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWB"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWB"));
                     break;
                 case 4:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWK"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWK"));
                     break;
                 case 5:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessWQ"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWQ"));
                     break;
                 default:
                     ErrorMessages.instance.ChessError(0);
@@ -141,19 +141,19 @@ public class ChessGridManager : MonoBehaviour
             switch (tileID)
             {
                 case 1:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBR"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBR"));
                     break;
                 case 2:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBN"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBN"));
                     break;
                 case 3:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBB"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBB"));
                     break;
                 case 4:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBK"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBK"));
                     break;
                 case 5:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("ChessBQ"));
+                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBQ"));
                     break;
                 default:
                     ErrorMessages.instance.ChessError(0);

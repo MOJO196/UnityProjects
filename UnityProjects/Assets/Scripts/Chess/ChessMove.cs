@@ -20,22 +20,3 @@ public class ChessMove
         };
     }
 }
-
-[System.Serializable]
-public class ChessMoves
-{
-    public ChessMoves[] moves;
-    int moveID;
-
-    public void AddToMoves(ChessMoves move)
-    {
-        moves[moveID] = move;
-        moveID++;
-    }
-
-    public void DeleteMove()
-    {
-        moveID--;
-        moves[moveID] = null;
-    }
-}
