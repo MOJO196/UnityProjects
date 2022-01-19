@@ -49,6 +49,8 @@ public class ChessMoveManager : MonoBehaviour
 
     public void MakeMove(ChessMove move)
     {
+        DoMove(move);
+        /*
         if ((ChessGame.piece)move.move[4] == ChessGame.piece.eS)
         {
             return;
@@ -91,6 +93,7 @@ public class ChessMoveManager : MonoBehaviour
                     break;
             }
         }
+        */
     }
 
     int PawnMoves(ChessMove move)
@@ -145,8 +148,10 @@ public class ChessMoveManager : MonoBehaviour
 
     void DoMove(ChessMove move)
     {
-        ChessGridManager.instance.DrawTile((int)move.move[4], ChessStats.whiteToMove, (int)move.move[0], (int)move.move[1]);
+        //Debug.Log((int)move.move[4]);
         ChessGridManager.instance.DrawTile(0, ChessStats.whiteToMove, (int)move.move[2], (int)move.move[3]);
+        ChessGridManager.instance.DrawTile((int)move.move[4], ChessStats.whiteToMove, (int)move.move[2], (int)move.move[3]);
+        ChessGridManager.instance.DrawTile(0, ChessStats.whiteToMove, (int)move.move[0], (int)move.move[1]);
         moveLog.AddToMoves(move);
         ChessStats.whiteToMove = !ChessStats.whiteToMove;
     }
