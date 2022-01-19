@@ -26,24 +26,24 @@ public class ChessGridManager : MonoBehaviour
         //other tiles
 
         //black
-        DrawTile(8, false, 0, 0);
-        DrawTile(8, false, 0, 7);
-        DrawTile(9, false, 0, 1);
-        DrawTile(9, false, 0, 6);
-        DrawTile(10, false, 0, 2);
-        DrawTile(10, false, 0, 5);
-        DrawTile(11, false, 0, 3);
-        DrawTile(12, false, 0, 4);
+        DrawTile(8, 0, 0);
+        DrawTile(8, 0, 7);
+        DrawTile(9, 0, 1);
+        DrawTile(9, 0, 6);
+        DrawTile(10, 0, 2);
+        DrawTile(10, 0, 5);
+        DrawTile(11, 0, 3);
+        DrawTile(12, 0, 4);
 
         //white
-        DrawTile(2, true, 7, 0);
-        DrawTile(2, true, 7, 7);
-        DrawTile(3, true, 7, 1);
-        DrawTile(3, true, 7, 6);
-        DrawTile(4, true, 7, 2);
-        DrawTile(4, true, 7, 5);
-        DrawTile(5, true, 7, 3);
-        DrawTile(6, true, 7, 4);
+        DrawTile(2, 7, 0);
+        DrawTile(2, 7, 7);
+        DrawTile(3, 7, 1);
+        DrawTile(3, 7, 6);
+        DrawTile(4, 7, 2);
+        DrawTile(4, 7, 5);
+        DrawTile(5, 7, 3);
+        DrawTile(6, 7, 4);
 
     }
 
@@ -97,74 +97,60 @@ public class ChessGridManager : MonoBehaviour
         Destroy(referenzTile);
     }
 
-    public void DrawTile(int tileID, bool white, int r, int c)
+    public void DrawTile(int tileID, int r, int c)
     {
-        //tileID : 0 - "--", 1 - 'R', 2 - 'N', 3 - 'B', 4 - 'K', 5 - 'Q'
         GameObject referenzTile;
 
-        if (tileID == 0)
+        switch (tileID)
         {
-            try
-            {
-                //delete tile
-                Destroy(GameObject.Find((string)(r + ", " + c)));
-            }
-            catch { } //do nothing if tile not found
-            return;
-        }
-        else if (white)
-        {
-            switch (tileID)
-            {
-                case 1:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWP"));
-                    break;
-                case 2:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWR"));
-                    break;
-                case 3:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWN"));
-                    break;
-                case 4:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWB"));
-                    break;
-                case 5:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWQ"));
-                    break;
-                case 6:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWK"));
-                    break;
-                default:
-                    ErrorMessages.instance.ChessError(0);
-                    return;
-            }
-        }
-        else
-        {
-            switch (tileID)
-            {
-                case 7:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBP"));
-                    break;
-                case 8:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBR"));
-                    break;
-                case 9:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBN"));
-                    break;
-                case 10:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBB"));
-                    break;
-                case 11:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBQ"));
-                    break;
-                case 12:
-                    referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBK"));
-                    break;
-                default:
-                    ErrorMessages.instance.ChessError(0);
-                    return;
-            }
+            case 0:
+                try
+                {
+                    //delete tile
+                    Destroy(GameObject.Find((string)(r + ", " + c)));
+                }
+                catch { } //do nothing if tile not found
+                return;
+            case 1:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWP"));
+                break;
+            case 2:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWR"));
+                break;
+            case 3:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWN"));
+                break;
+            case 4:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWB"));
+                break;
+            case 5:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWQ"));
+                break;
+            case 6:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessWK"));
+                break;
+            case 7:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBP"));
+                break;
+            case 8:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBR"));
+                break;
+            case 9:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBN"));
+                break;
+            case 10:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBB"));
+                break;
+            case 11:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBQ"));
+                break;
+            case 12:
+                referenzTile = (GameObject)Instantiate(Resources.Load("Chess/ChessBK"));
+                break;
+            default:
+                Debug.Log(tileID);
+                ErrorMessages.instance.ChessError(0);
+                return;
         }
 
         GameObject tile = (GameObject)Instantiate(referenzTile, transform);

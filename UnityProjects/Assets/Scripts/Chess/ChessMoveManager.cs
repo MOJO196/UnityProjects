@@ -49,8 +49,8 @@ public class ChessMoveManager : MonoBehaviour
 
     public void MakeMove(ChessMove move)
     {
-        DoMove(move);
-        /*
+        //DoMove(move);
+
         if ((ChessGame.piece)move.move[4] == ChessGame.piece.eS)
         {
             return;
@@ -74,7 +74,7 @@ public class ChessMoveManager : MonoBehaviour
                     break;
             }
         }
-        else
+        else if (!ChessStats.whiteToMove)
         {
             switch ((ChessGame.piece)move.move[4])
             {
@@ -93,65 +93,141 @@ public class ChessMoveManager : MonoBehaviour
                     break;
             }
         }
-        */
     }
 
     int PawnMoves(ChessMove move)
     {
         if (ChessStats.gameState[(int)move.move[0], (int)move.move[1]] == ChessGame.piece.wP)
         {
-            if (ChessStats.gameState[(int)move.move[0] - 1, (int)move.move[1]] == ChessGame.piece.eS)
+            if ((int)move.move[1] == (int)move.move[3]) //move forwards
             {
-                if ((int)move.move[0] - 1 == (int)move.move[2])
+                if (ChessStats.gameState[(int)move.move[0] - 1, (int)move.move[1]] == ChessGame.piece.eS)
                 {
-                    DoMove(move);
-                    return 0;
-                }
-                else if (ChessStats.gameState[(int)move.move[0] - 2, (int)move.move[1]] == ChessGame.piece.eS)
-                {
-                    if ((int)move.move[0] == (int)move.move[2] - 2)
+                    if ((int)move.move[0] - 1 == (int)move.move[2])
                     {
-                        if ((int)move.move[0] == 6)
+                        if ((int)move.move[0] - 1 == 0) //promotion
                         {
-                            DoMove(move);
-                            return 0;
+                            Debug.Log("Promotion!");
                         }
+
+                        DoMove(move);
+                        return 0;
+                    }
+                    else if (ChessStats.gameState[(int)move.move[0] - 2, (int)move.move[1]] == ChessGame.piece.eS && (int)move.move[0] == 6 && (int)move.move[0] - 2 == (int)move.move[2])
+                    {
+                        DoMove(move);
+                        return 0;
+                    }
+                }
+            }
+            else if ((int)move.move[0] - 1 == (int)move.move[2] && (int)move.move[1] - 1 == (int)move.move[3]) //capture left
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    if (ChessStats.gameState[(int)move.move[0] - 1, (int)move.move[1] - 1] == ChessGame.piece.eS + i)
+                    {
+                        return -1;
                     }
 
+                    if ((int)move.move[0] - 1 == 1) PawnPromotion(); //promotion
+                    DoMove(move);
                 }
+            }
+            else if ((int)move.move[0] - 1 == (int)move.move[2] && (int)move.move[1] + 1 == (int)move.move[3]) //capture right
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    if (ChessStats.gameState[(int)move.move[0] - 1, (int)move.move[1] + 1] == ChessGame.piece.eS + i)
+                    {
+                        return -1;
+                    }
+
+                    if ((int)move.move[0] - 1 == 1) PawnPromotion(); //promotion
+                    DoMove(move);
+                }
+            }
+            else if (false) //en passent
+            {
+
+            }
+            else if (false) //castling
+            {
+
             }
         }
         else if (ChessStats.gameState[(int)move.move[0], (int)move.move[1]] == ChessGame.piece.bP)
         {
-            if (ChessStats.gameState[(int)move.move[0] + 1, (int)move.move[1]] == ChessGame.piece.eS)
+            if ((int)move.move[1] == (int)move.move[3]) //move forwards
             {
-                if ((int)move.move[0] - 1 == (int)move.move[2])
+                if (ChessStats.gameState[(int)move.move[0] + 1, (int)move.move[1]] == ChessGame.piece.eS)
                 {
-                    DoMove(move);
-                    return 0;
-                }
-                else if (ChessStats.gameState[(int)move.move[0] + 2, (int)move.move[1]] == ChessGame.piece.eS && (int)move.move[0] == (int)move.move[2] + 2 && (int)move.move[0] == 6)
-                {
-                    DoMove(move);
-                    return 0;
+                    if ((int)move.move[0] + 1 == (int)move.move[2])
+                    {
+                        if ((int)move.move[0] + 1 == 7) PawnPromotion(); //promotion
+
+                        DoMove(move);
+                        return 0;
+                    }
+                    else if (ChessStats.gameState[(int)move.move[0] + 2, (int)move.move[1]] == ChessGame.piece.eS && (int)move.move[0] == 1 && (int)move.move[0] + 2 == (int)move.move[2])
+                    {
+                        DoMove(move);
+                        return 0;
+                    }
                 }
             }
-        }
-        else
-        {
-            ErrorMessages.instance.ChessError(1);
-            return -1;
+            else if ((int)move.move[0] + 1 == (int)move.move[2] && (int)move.move[1] - 1 == (int)move.move[3]) //capture left
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    if (ChessStats.gameState[(int)move.move[0] + 1, (int)move.move[1] - 1] == ChessGame.piece.eS + i)
+                    {
+                        return -1;
+                    }
+
+                    if ((int)move.move[0] + 1 == 1) PawnPromotion(); //promotion
+                    DoMove(move);
+                }
+            }
+            else if ((int)move.move[0] + 1 == (int)move.move[2] && (int)move.move[1] + 1 == (int)move.move[3]) //capture right
+            {
+                for (int i = 0; i < 7; i++)
+                {
+                    if (ChessStats.gameState[(int)move.move[0] + 1, (int)move.move[1] + 1] == ChessGame.piece.eS + i)
+                    {
+                        return -1;
+                    }
+
+                    if ((int)move.move[0] + 1 == 1) PawnPromotion(); //promotion
+                    DoMove(move);
+                }
+            }
+            else if (false) //en passent
+            {
+
+            }
+            else if (false) //castling
+            {
+
+            }
         }
 
         return -1;
     }
 
+    void PawnPromotion()
+    {
+        Debug.Log("Promotion!");
+    }
+
     void DoMove(ChessMove move)
     {
-        //Debug.Log((int)move.move[4]);
-        ChessGridManager.instance.DrawTile(0, ChessStats.whiteToMove, (int)move.move[2], (int)move.move[3]);
-        ChessGridManager.instance.DrawTile((int)move.move[4], ChessStats.whiteToMove, (int)move.move[2], (int)move.move[3]);
-        ChessGridManager.instance.DrawTile(0, ChessStats.whiteToMove, (int)move.move[0], (int)move.move[1]);
+        ChessGridManager.instance.DrawTile(0, (int)move.move[2], (int)move.move[3]);
+        ChessGridManager.instance.DrawTile((int)move.move[4], (int)move.move[2], (int)move.move[3]);
+        ChessGridManager.instance.DrawTile(0, (int)move.move[0], (int)move.move[1]);
+
+        ChessStats.gameState[(int)move.move[2], (int)move.move[3]] = (ChessGame.piece)move.move[4];
+        ChessStats.gameState[(int)move.move[0], (int)move.move[1]] = ChessGame.piece.eS;
+
         moveLog.AddToMoves(move);
         ChessStats.whiteToMove = !ChessStats.whiteToMove;
     }
