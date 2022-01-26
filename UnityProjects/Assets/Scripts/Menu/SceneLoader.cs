@@ -34,7 +34,7 @@ public class SceneLoader : MonoBehaviour
 
     IEnumerator SetActiveScene(int sceneID)
     {
-        yield return new WaitForSeconds(1); //Transition time
+        yield return new WaitForEndOfFrame(); //Transition time
         SceneManager.LoadScene(sceneID);
     }
 }

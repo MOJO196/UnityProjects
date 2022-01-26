@@ -109,19 +109,19 @@ public class TicTacToeGame : MonoBehaviour
         {
             case 1:
                 TicTacToeStats.player1Score++;
-                Debug.Log("Player " + player + " won!");
+                //Debug.Log("Player " + player + " won!");
                 //Player1 won overlay
                 break;
             case 2:
                 TicTacToeStats.player2Score++;
                 if (!(TicTacToeStats.AILevel == 0))
                 {
-                    Debug.Log("AI won!");
+                    //Debug.Log("AI won!");
                     //AI won Overlay
                 }
                 else
                 {
-                    Debug.Log("Player " + player + " won!");
+                    //Debug.Log("Player " + player + " won!");
                     //Player2 won overlay
                 }
                 break;
@@ -130,7 +130,7 @@ public class TicTacToeGame : MonoBehaviour
         if (TicTacToeStats.player1Score == TicTacToeStats.pointsNeedToWin - 1 || TicTacToeStats.player2Score == TicTacToeStats.pointsNeedToWin - 1)
         {
             TicTacToeStats.matchpoint = true;
-            Debug.Log("Matchpoint");
+            //Debug.Log("Matchpoint");
             //Matchpoint overlay 
         }
     }

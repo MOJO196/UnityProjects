@@ -214,6 +214,11 @@ public class ChessMoveManager : MonoBehaviour
         return -1;
     }
 
+    int RookMoves()
+    {
+        
+    }
+
     void PawnPromotion()
     {
         Debug.Log("Promotion!");

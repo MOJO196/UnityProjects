@@ -23,21 +23,21 @@ public class TicTacToeAIButton : Buttons
                 TicTacToeStats.AILevel = level;
                 return;
             case 2:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - medium";
+                levelButton.GetComponentInChildren<Text>().text = "AI Level - medium";
                 TicTacToeStats.AILevel = level;
                 return;
             case 3:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - hard";
+                levelButton.GetComponentInChildren<Text>().text = "AI Level - hard";
                 TicTacToeStats.AILevel = level;
                 return;
             case 4:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - very hard";
+                levelButton.GetComponentInChildren<Text>().text = "AI Level - very hard";
                 TicTacToeStats.AILevel = level;
                 return;
-            case 5:
-                GameObject.Find("AILevel").GetComponentInChildren<Text>().text = "AI Level - impossible";
-                TicTacToeStats.AILevel = level - 1;
-                return;
+            //case 5:
+                //levelButton.GetComponentInChildren<Text>().text = "AI Level - impossible";
+                //TicTacToeStats.AILevel = level - 1;
+                //return;
             default:
                 level = -1;
                 OnClick();

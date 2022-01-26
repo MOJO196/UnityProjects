@@ -62,7 +62,7 @@ public class TicTacToeGameController : MonoBehaviour
             canEnd = false;
             canRestart = false;
             SaveSystem.SaveTicTacToe();
-            Debug.Log("Score " + TicTacToeStats.player1Score + ":" + TicTacToeStats.player2Score);
+            //Debug.Log("Score " + TicTacToeStats.player1Score + ":" + TicTacToeStats.player2Score);
             SceneLoader.instance.NextScene();
         }
     }

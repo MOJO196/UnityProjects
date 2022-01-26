@@ -1,10 +1,10 @@
 # Details
 
-Date : 2022-01-19 10:10:49
+Date : 2022-01-25 14:39:44
 
 Directory c:\Users\User\Documents\GitHub\UnityProjects\UnityProjects\Assets\Scripts
 
-Total : 43 files,  1941 codes, 71 comments, 293 blanks, all 2305 lines
+Total : 43 files,  2026 codes, 33 comments, 303 blanks, all 2362 lines
 
 [summary](results.md) / details / [diff summary](diff.md) / [diff details](diff-details.md)
 
@@ -12,11 +12,11 @@ Total : 43 files,  1941 codes, 71 comments, 293 blanks, all 2305 lines
 | filename | language | code | comment | blank | total |
 | :--- | :--- | ---: | ---: | ---: | ---: |
 | [Assets/Scripts/Chess/ChessGame.cs](/Assets/Scripts/Chess/ChessGame.cs) | C# | 53 | 0 | 7 | 60 |
-| [Assets/Scripts/Chess/ChessGridManager.cs](/Assets/Scripts/Chess/ChessGridManager.cs) | C# | 148 | 6 | 23 | 177 |
-| [Assets/Scripts/Chess/ChessMove.cs](/Assets/Scripts/Chess/ChessMove.cs) | C# | 21 | 0 | 4 | 25 |
-| [Assets/Scripts/Chess/ChessMoveManager.cs](/Assets/Scripts/Chess/ChessMoveManager.cs) | C# | 103 | 45 | 15 | 163 |
+| [Assets/Scripts/Chess/ChessGridManager.cs](/Assets/Scripts/Chess/ChessGridManager.cs) | C# | 135 | 5 | 23 | 163 |
+| [Assets/Scripts/Chess/ChessMove.cs](/Assets/Scripts/Chess/ChessMove.cs) | C# | 20 | 0 | 3 | 23 |
+| [Assets/Scripts/Chess/ChessMoveManager.cs](/Assets/Scripts/Chess/ChessMoveManager.cs) | C# | 208 | 1 | 26 | 235 |
 | [Assets/Scripts/Chess/ChessMoves.cs](/Assets/Scripts/Chess/ChessMoves.cs) | C# | 23 | 0 | 6 | 29 |
-| [Assets/Scripts/Chess/ChessOnClick.cs](/Assets/Scripts/Chess/ChessOnClick.cs) | C# | 13 | 0 | 4 | 17 |
+| [Assets/Scripts/Chess/ChessOnClick.cs](/Assets/Scripts/Chess/ChessOnClick.cs) | C# | 12 | 1 | 4 | 17 |
 | [Assets/Scripts/Chess/ChessStats.cs](/Assets/Scripts/Chess/ChessStats.cs) | C# | 6 | 0 | 1 | 7 |
 | [Assets/Scripts/Data/SaveSystem.cs](/Assets/Scripts/Data/SaveSystem.cs) | C# | 58 | 2 | 13 | 73 |
 | [Assets/Scripts/Data/SnakeData.cs](/Assets/Scripts/Data/SnakeData.cs) | C# | 30 | 0 | 4 | 34 |
@@ -28,8 +28,8 @@ Total : 43 files,  1941 codes, 71 comments, 293 blanks, all 2305 lines
 | [Assets/Scripts/Menu/Buttons/SnakePlayButton.cs](/Assets/Scripts/Menu/Buttons/SnakePlayButton.cs) | C# | 20 | 0 | 4 | 24 |
 | [Assets/Scripts/Menu/Buttons/TicTacToeAIButton.cs](/Assets/Scripts/Menu/Buttons/TicTacToeAIButton.cs) | C# | 45 | 0 | 3 | 48 |
 | [Assets/Scripts/Menu/Buttons/TicTacToeMaxPointsButton.cs](/Assets/Scripts/Menu/Buttons/TicTacToeMaxPointsButton.cs) | C# | 31 | 0 | 4 | 35 |
-| [Assets/Scripts/Menu/Buttons/TicTacToePlayButton.cs](/Assets/Scripts/Menu/Buttons/TicTacToePlayButton.cs) | C# | 13 | 0 | 4 | 17 |
-| [Assets/Scripts/Menu/MenuButtons.cs](/Assets/Scripts/Menu/MenuButtons.cs) | C# | 145 | 4 | 13 | 162 |
+| [Assets/Scripts/Menu/Buttons/TicTacToePlayButton.cs](/Assets/Scripts/Menu/Buttons/TicTacToePlayButton.cs) | C# | 12 | 0 | 4 | 16 |
+| [Assets/Scripts/Menu/MenuButtons.cs](/Assets/Scripts/Menu/MenuButtons.cs) | C# | 141 | 10 | 13 | 164 |
 | [Assets/Scripts/Menu/SceneData.cs](/Assets/Scripts/Menu/SceneData.cs) | C# | 4 | 0 | 1 | 5 |
 | [Assets/Scripts/Menu/SceneLoader.cs](/Assets/Scripts/Menu/SceneLoader.cs) | C# | 34 | 0 | 7 | 41 |
 | [Assets/Scripts/Menu/Score/Score.cs](/Assets/Scripts/Menu/Score/Score.cs) | C# | 10 | 0 | 2 | 12 |
