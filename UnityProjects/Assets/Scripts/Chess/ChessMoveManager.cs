@@ -216,7 +216,7 @@ public class ChessMoveManager : MonoBehaviour
 
     int RookMoves()
     {
-        
+        return 0;
     }
 
     void PawnPromotion()

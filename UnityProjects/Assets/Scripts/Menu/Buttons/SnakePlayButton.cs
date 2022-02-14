@@ -11,10 +11,10 @@ public class SnakePlayButton : Buttons
     {
         if (SnakeStats.row == 0)
         {
-            SnakeStats.row = 9;
-            SnakeStats.col = 11;
-            SnakeStats.delay = 1f;
-            SnakeStats.level = 0;
+            SnakeStats.row = 10;
+            SnakeStats.col = 16;
+            SnakeStats.delay = .5f;
+            SnakeStats.level = 1;
             SnakeStats.camSize = 5;
         }
 
