@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SnakeScore : Score
+public class PongScore : Score
 {
     [SerializeField]
     GameObject scoreObj;
@@ -15,6 +15,6 @@ public class SnakeScore : Score
 
     protected override void SetScore()
     {
-        scoreObj.GetComponentInChildren<Text>().text = " Score : " + SnakeStats.score.ToString() + " Level : " + SnakeStats.level.ToString();
+        scoreObj.GetComponentInChildren<Text>().text = "Result\n" + PongStats.scorePlayer1.ToString() + " : " + PongStats.scorePlayer2.ToString();
     }
 }

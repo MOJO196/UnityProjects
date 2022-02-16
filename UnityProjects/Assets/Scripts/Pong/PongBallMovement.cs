@@ -26,15 +26,14 @@ public class PongBallMovement : MonoBehaviour
             case "DeathZone1":
                 //Player2 Scored
                 PongScoreManager.instance.Score(2);
-                if (PongScoreManager.instance.Score(0))
-                    Destroy(gameObject);                
+                if (PongScoreManager.instance.Score(0)) SceneLoader.instance.NextScene();
+         
                 StartCoroutine(Appear(1));
                 break;
             case "DeathZone2":
                 //Player1 Scored
                 PongScoreManager.instance.Score(1);
-                if (PongScoreManager.instance.Score(0))
-                    Destroy(gameObject);
+                if (PongScoreManager.instance.Score(0)) SceneLoader.instance.NextScene();
                 StartCoroutine(Appear(2));
                 break;
             case "Line":

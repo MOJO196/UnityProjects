@@ -17,13 +17,10 @@ public class PongScoreManager : MonoBehaviour
         }
     }
 
-    int scorePlayer1;
-    int scorePlayer2;
-
     public bool Score(int player)
     {
-        if (player == 1) scorePlayer1 += 1;
-        else if (player == 2) scorePlayer2 += 1;
+        if (player == 1) PongStats.scorePlayer1 += 1;
+        else if (player == 2) PongStats.scorePlayer2 += 1;
 
         return CheckIfPlayerWon();
     }
@@ -31,19 +28,19 @@ public class PongScoreManager : MonoBehaviour
     
     bool CheckIfPlayerWon()
     {
-        if (scorePlayer1 >= 5)
+        if (PongStats.scorePlayer1 >= 5)
         {
             //Player 1 won
             Debug.Log("Player 1 won");
             return true;
         }
-        else if (scorePlayer2 == 5)
+        else if (PongStats.scorePlayer2 == 5)
         {
             //Player 2 won
             Debug.Log("Player 2 won");
             return true;
         }
-        else if (scorePlayer1 == 4 || scorePlayer2 == 4)
+        else if (PongStats.scorePlayer1 == 4 || PongStats.scorePlayer2 == 4)
         {
             //Matchpoint
         }

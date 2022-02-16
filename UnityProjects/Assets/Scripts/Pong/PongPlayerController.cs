@@ -10,6 +10,8 @@ public class PongPlayerController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        PongStats.scorePlayer1 = 0;
+        PongStats.scorePlayer2 = 0;
     }
 
     public void Up(InputAction.CallbackContext context)
