@@ -8,19 +8,16 @@ public class Wind : MonoBehaviour
     float strength;
     [SerializeField]
     GameObject point;
-    float nDistance;
+    float nDistance, distance;
 
     void OnTriggerStay2D(Collider2D other)
     {
-        nDistance = ((Mathf.Abs(point.transform.position.x - other.transform.position.x) + Mathf.Abs(point.transform.position.y - other.transform.position.y)) / 2);
+        distance = Mathf.Sqrt(Mathf.Pow((other.transform.position.x - point.transform.position.x), 2) +
+                   Mathf.Pow((other.transform.position.y - point.transform.position.y), 2));
+        nDistance = -distance / (11.2f * gameObject.transform.localScale.x) + 1f;
 
         other.GetComponent<Rigidbody2D>().velocity += new Vector2(
-            (strength * (Mathf.Cos(gameObject.transform.localEulerAngles.z * Mathf.Deg2Rad)) * (nDistance * (strength / (5.3684f * gameObject.transform.localScale.x)))), 
-            (strength * (Mathf.Sin(gameObject.transform.localEulerAngles.z * Mathf.Deg2Rad)) * (nDistance * (strength / (5.3684f * gameObject.transform.localScale.x)))));
+            strength * (Mathf.Cos(gameObject.transform.eulerAngles.z * Mathf.Deg2Rad)),
+            strength * (Mathf.Sin(gameObject.transform.eulerAngles.z * Mathf.Deg2Rad)));
     }
 }
-
-// - nDistance * (strength * 0.01f)
-// - nDistance * (strength * 0.01f)
-
-// 13.421
