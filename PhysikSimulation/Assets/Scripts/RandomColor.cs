@@ -1,15 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class RandomColor : MonoBehaviour
-{
-    [SerializeField]
-    GameObject img;
-    
-    void Awake() 
+{   
+    void Start() 
     {
-        img.GetComponent<Image>().color = Color.red;
+        gameObject.GetComponent<Renderer>().material.color = getRandomColor();
+    }
+
+    public Color getRandomColor()
+    {
+        return new Color(
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f),
+            Random.Range(0f, 1f)
+        );
     }
 }
